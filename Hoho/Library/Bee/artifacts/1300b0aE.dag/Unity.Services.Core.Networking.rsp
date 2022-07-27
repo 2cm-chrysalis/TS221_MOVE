@@ -120,6 +120,8 @@
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
+-r:"Assets/ARDUnity/Scripts/Internal/ArdunityCore.dll"
+-r:"Assets/ARDUnity/Scripts/Internal/Editor/ArdunityCoreEditor.dll"
 -r:"C:/Dev_Project/Unity_Project/TS2221_MOVE/Hoho/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll"
 -r:"C:/Dev_Project/Unity_Project/TS2221_MOVE/Hoho/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll"
 -r:"C:/Dev_Project/Unity_Project/TS2221_MOVE/Hoho/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll"
