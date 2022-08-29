@@ -403,6 +403,12 @@
 "Assets/PlayMaker/Editor/PlayMakerEditorStartup.cs"
 "Assets/PlayMaker/Editor/PlayMakerWelcomeWindow.cs"
 "Assets/PlayMaker/Editor/PreUpdateChecker.cs"
+"Assets/Under The Sea UI Kit/Scripts/Editor/Counter Bar/CounterBarEditor.cs"
+"Assets/Under The Sea UI Kit/Scripts/Editor/OnOff Switch/OnOffSwitchEditor.cs"
+"Assets/Under The Sea UI Kit/Scripts/Editor/Progress Bars/AwardProgressBarEditor.cs"
+"Assets/Under The Sea UI Kit/Scripts/Editor/Progress Bars/DragableProgressBarEditor.cs"
+"Assets/Under The Sea UI Kit/Scripts/Editor/Progress Bars/ProgressBarEditor.cs"
+"Assets/Under The Sea UI Kit/Scripts/Editor/Progress Bars/SimpleProgressBarEditor.cs"
 -langversion:9.0
 
 /deterministic

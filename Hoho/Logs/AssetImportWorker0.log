@@ -15,7 +15,7 @@ C:/Dev_Project/Unity_Project/TS2221_MOVE/Hoho
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-57247
+63608
 Successfully changed project path to: C:/Dev_Project/Unity_Project/TS2221_MOVE/Hoho
 C:/Dev_Project/Unity_Project/TS2221_MOVE/Hoho
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ C:/Dev_Project/Unity_Project/TS2221_MOVE/Hoho
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 275.19 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 289.50 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.8f1 (b30333d56e81)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.8f1/Editor/Data/Resources/UnitySubsystems
@@ -63,437 +63,80 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.8f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.8f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.8f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56120
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56520
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.8f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.8f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.047247 seconds.
+Registered in 0.041043 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 307.24 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 374.28 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.612 seconds
+- Completed reload, in  2.312 seconds
 Domain Reload Profiling:
-	ReloadAssembly (2614ms)
-		BeginReloadAssembly (354ms)
+	ReloadAssembly (2313ms)
+		BeginReloadAssembly (281ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (2ms)
-		EndReloadAssembly (1777ms)
-			LoadAssemblies (354ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (1736ms)
+			LoadAssemblies (275ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (344ms)
+			SetupTypeCache (318ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (74ms)
-			SetupLoadedEditorAssemblies (1115ms)
+			RebuildScriptCaches (122ms)
+			SetupLoadedEditorAssemblies (1083ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (153ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (308ms)
-				BeforeProcessingInitializeOnLoad (3ms)
-				ProcessInitializeOnLoadAttributes (418ms)
-				ProcessInitializeOnLoadMethodAttributes (232ms)
+				InitializePlatformSupportModulesInManaged (213ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (374ms)
+				BeforeProcessingInitializeOnLoad (2ms)
+				ProcessInitializeOnLoadAttributes (334ms)
+				ProcessInitializeOnLoadMethodAttributes (160ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.063499 seconds.
+Registered in 0.051366 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image C:\Dev_Project\Unity_Project\TS2221_MOVE\Hoho\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image C:\Dev_Project\Unity_Project\TS2221_MOVE\Hoho\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 229.12 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 385.58 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.995 seconds
+- Completed reload, in  6.642 seconds
 Domain Reload Profiling:
-	ReloadAssembly (3997ms)
-		BeginReloadAssembly (662ms)
+	ReloadAssembly (6645ms)
+		BeginReloadAssembly (858ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (19ms)
+			DisableScriptedObjects (29ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (198ms)
-		EndReloadAssembly (2978ms)
-			LoadAssemblies (496ms)
+			CreateAndSetChildDomain (153ms)
+		EndReloadAssembly (5352ms)
+			LoadAssemblies (1943ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (914ms)
+			SetupTypeCache (1081ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (148ms)
-			SetupLoadedEditorAssemblies (1377ms)
+			RebuildScriptCaches (206ms)
+			SetupLoadedEditorAssemblies (2219ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (65ms)
+				InitializePlatformSupportModulesInManaged (87ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (229ms)
-				BeforeProcessingInitializeOnLoad (267ms)
-				ProcessInitializeOnLoadAttributes (686ms)
-				ProcessInitializeOnLoadMethodAttributes (96ms)
-				AfterProcessingInitializeOnLoad (32ms)
+				RefreshPlugins (386ms)
+				BeforeProcessingInitializeOnLoad (395ms)
+				ProcessInitializeOnLoadAttributes (846ms)
+				ProcessInitializeOnLoadMethodAttributes (428ms)
+				AfterProcessingInitializeOnLoad (77ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (34ms)
+			AwakeInstancesAfterBackupRestoration (83ms)
 Platform modules already initialized, skipping
-========================================================================
-Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.26 seconds
-Refreshing native plugins compatible for Editor in 2.74 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4091 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 46 unused Assets / (198.2 KB). Loaded Objects now: 4567.
-Memory consumption went from 177.9 MB to 177.8 MB.
-Total: 10.808300 ms (FindLiveObjects: 0.694200 ms CreateObjectMapping: 0.736200 ms MarkObjects: 8.862200 ms  DeleteObjects: 0.513600 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 10350.785879 seconds.
-  path: Assets/File/Sprites/Set1_Ourdoor_Decoration.png
-  artifactKey: Guid(bc4bb899cdfe50a419a8822382904bfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/File/Sprites/Set1_Ourdoor_Decoration.png using Guid(bc4bb899cdfe50a419a8822382904bfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b6a86e5f2401521c1acae1a2a9f326e') in 0.795430 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000089 seconds.
-  path: Assets/File/Sprites/Set1_Ourdoor_Tiles.png
-  artifactKey: Guid(a329d70a2327d3a4ea80c3cf3f8883b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/File/Sprites/Set1_Ourdoor_Tiles.png using Guid(a329d70a2327d3a4ea80c3cf3f8883b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db02b9e154082f4ac9cf9536f9b8edd0') in 0.900841 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000051 seconds.
-  path: Assets/File/Sprites/Set1_Ourdoor_Decoration_Fence.png
-  artifactKey: Guid(c2e4c2426c22eb548a56e28e2c887cd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/File/Sprites/Set1_Ourdoor_Decoration_Fence.png using Guid(c2e4c2426c22eb548a56e28e2c887cd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cbdbd406f1034c1e9f944532ef23a6dc') in 0.238740 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 9.758418 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tile Palette/Grass_Center.prefab
-  artifactKey: Guid(a229b24433fbefc459fbe14b4b6d660b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tile Palette/Grass_Center.prefab using Guid(a229b24433fbefc459fbe14b4b6d660b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2231ebe0543e55052d5a225dabc91d9f') in 0.154246 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000086 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tile Palette/Road_Center.prefab
-  artifactKey: Guid(7adfc3fb145e331479ad9051fb7ec8d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tile Palette/Road_Center.prefab using Guid(7adfc3fb145e331479ad9051fb7ec8d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1123de0a4298aefbacb8bdd96a529933') in 0.057809 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000155 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tile Palette/OutDoor_All.prefab
-  artifactKey: Guid(9efe132b64600c24885e924e074f1fc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tile Palette/OutDoor_All.prefab using Guid(9efe132b64600c24885e924e074f1fc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e83c0111cc83043faccbcc6624f51e02') in 0.292415 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000062 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tile Palette/OutDoor_Fence.prefab
-  artifactKey: Guid(36d2827fbdd7d24468a5089c1010d570) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tile Palette/OutDoor_Fence.prefab using Guid(36d2827fbdd7d24468a5089c1010d570) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0943d7deb19baf6388ccc85a641dab10') in 0.128634 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.136563 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Grass_Tile.asset
-  artifactKey: Guid(326135724bfcfde4a868929c7534bffd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Grass_Tile.asset using Guid(326135724bfcfde4a868929c7534bffd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0b6c543e013b5dce7fed121bc485c7b') in 0.030837 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000034 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_2.asset
-  artifactKey: Guid(0dbbf738b0be79c4fba4985b9d01b348) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_2.asset using Guid(0dbbf738b0be79c4fba4985b9d01b348) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e4054688be65f219aa6f3eb841a6fe6') in 0.081436 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000038 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_14.asset
-  artifactKey: Guid(ed38093ba1f3b9f44ae99f196d71e9a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_14.asset using Guid(ed38093ba1f3b9f44ae99f196d71e9a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '470a5ad50ebc25038ec1c5ccd8a966dc') in 0.045687 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000060 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_20.asset
-  artifactKey: Guid(c1a9e0e373e608941b118305ce2a966a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_20.asset using Guid(c1a9e0e373e608941b118305ce2a966a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07030b6ca8e52264d4a65620e53a447d') in 0.043447 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000053 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_17.asset
-  artifactKey: Guid(2813e830d862bd9448622720157ff619) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_17.asset using Guid(2813e830d862bd9448622720157ff619) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb1452129d2f37238304b9d9913fcb8a') in 0.106320 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.002270 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_20.asset
-  artifactKey: Guid(f9c5b16a321ca0b4d8cfd0b82509e0d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_20.asset using Guid(f9c5b16a321ca0b4d8cfd0b82509e0d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e9f0c121632b24c4e976e3ebfd49947') in 0.036558 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000049 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_8.asset
-  artifactKey: Guid(26865b872cce9594e99062be3d3452f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_8.asset using Guid(26865b872cce9594e99062be3d3452f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2628ffbe7969c08122dd0b64166c369d') in 0.038754 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000064 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_4.asset
-  artifactKey: Guid(3e0e96282494eca43aff9e7ff73b9d68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_4.asset using Guid(3e0e96282494eca43aff9e7ff73b9d68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a8123f871f389d9b0b423d09ae20f63') in 0.033090 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000035 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_19.asset
-  artifactKey: Guid(b714e3340d8ad4b41a7bf94125020b9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_19.asset using Guid(b714e3340d8ad4b41a7bf94125020b9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5f69263890795aa016fc3fd0de72dc6') in 0.059002 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000049 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_18.asset
-  artifactKey: Guid(10e66f7cf05ca3347b295c6f55c74fa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_18.asset using Guid(10e66f7cf05ca3347b295c6f55c74fa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64ebfaf0b9a55f6da2af9cdbee0583a6') in 0.109868 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.002143 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_7.asset
-  artifactKey: Guid(fe34cf8bc0c8d1f4481821eef8ecba2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_7.asset using Guid(fe34cf8bc0c8d1f4481821eef8ecba2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7857af213acdb220490fa56f3486648a') in 0.097332 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000170 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_6.asset
-  artifactKey: Guid(d1d39a7eb77a4cc4b9812d2c848466bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_6.asset using Guid(d1d39a7eb77a4cc4b9812d2c848466bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '918266418b5629492feae89cddfe8ba0') in 0.082199 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000046 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_10.asset
-  artifactKey: Guid(01e8390cefda18141b82bf2315fac78c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_10.asset using Guid(01e8390cefda18141b82bf2315fac78c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62d816b7fce3b6720cd1d9b9baf72181') in 0.057324 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.004981 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_5.asset
-  artifactKey: Guid(39be6f17e02e47e4caecf61f30a47ebb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_5.asset using Guid(39be6f17e02e47e4caecf61f30a47ebb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d94174402bd5dfdad3d72004acebe5c') in 0.175799 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000052 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_19.asset
-  artifactKey: Guid(70662a4404ad41e408111b04fa7e8b22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_19.asset using Guid(70662a4404ad41e408111b04fa7e8b22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a2a35c30d8c87f85d277b7fccc18643') in 0.096967 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000054 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_15.asset
-  artifactKey: Guid(ab3203d1f79b7ea41a69d6f23a8c8af1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_15.asset using Guid(ab3203d1f79b7ea41a69d6f23a8c8af1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f71aae204f34c58045dd6518cf89166') in 0.099862 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000062 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_21.asset
-  artifactKey: Guid(3eadd36109e973d4791bc5551c8ab531) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_21.asset using Guid(3eadd36109e973d4791bc5551c8ab531) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4dd3c4d78aab6b8254d1bac9fbd54c5') in 0.060974 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000659 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_12.asset
-  artifactKey: Guid(54e3ca6234e9ab64895105f3d0c4db0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_12.asset using Guid(54e3ca6234e9ab64895105f3d0c4db0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f62a361a880d1424f4dd743047927b4c') in 0.116373 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000046 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_22.asset
-  artifactKey: Guid(93276d97c9047084ba2e865d810218f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_22.asset using Guid(93276d97c9047084ba2e865d810218f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7de709de02b076face9399ab33d00d9c') in 0.058011 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000053 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_9.asset
-  artifactKey: Guid(99f702261bd8cdc45868f225392629ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_9.asset using Guid(99f702261bd8cdc45868f225392629ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1584be260df801328e7faebe6fb3538') in 0.179999 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000054 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_8.asset
-  artifactKey: Guid(e595687c95b5e874faeb5da929e2c343) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_8.asset using Guid(e595687c95b5e874faeb5da929e2c343) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eee7fb18185a916c5051247a9f7f4b93') in 0.152676 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000080 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_13.asset
-  artifactKey: Guid(950188cc6b6640c47a02d25ade14f142) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_13.asset using Guid(950188cc6b6640c47a02d25ade14f142) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38e9286559fc7113c5bae9d8399199ef') in 0.046195 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000692 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_13.asset
-  artifactKey: Guid(96cbb9872cca7304e9991bebbcbd9e22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_13.asset using Guid(96cbb9872cca7304e9991bebbcbd9e22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e22340dc5697d567cc11f072edd6e09') in 0.051333 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000048 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_0.asset
-  artifactKey: Guid(4baf99b39d1ffc942a2838ef3f170376) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_0.asset using Guid(4baf99b39d1ffc942a2838ef3f170376) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3513e823e566380543a88cdef7822c6d') in 0.041215 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000050 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_3.asset
-  artifactKey: Guid(1b465348fe649b8488cad720245c864a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_3.asset using Guid(1b465348fe649b8488cad720245c864a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f700ea4c2bd299ef1878f8de010ff4e') in 0.056245 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000048 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_24.asset
-  artifactKey: Guid(c2b8e4663d9689b42ae0360cf0d377f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_24.asset using Guid(c2b8e4663d9689b42ae0360cf0d377f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94ac625321ec70c7cd80e3030fbe01ba') in 0.069693 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000403 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_17.asset
-  artifactKey: Guid(0def3e9cca45d444384450d505289b78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_17.asset using Guid(0def3e9cca45d444384450d505289b78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57194dd8b79fbb46ff4803252233f6bf') in 0.050968 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000041 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_1.asset
-  artifactKey: Guid(3ae14be8d2bcc524487b5dca45cbbda1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_1.asset using Guid(3ae14be8d2bcc524487b5dca45cbbda1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8bbc0936eb77df08319d96e2bbac53aa') in 0.033405 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000040 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_10.asset
-  artifactKey: Guid(9b8fd30ce6a47924fa075172096ac87f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_10.asset using Guid(9b8fd30ce6a47924fa075172096ac87f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47f142e8017ffb8fbda70eee4dc9dfc6') in 0.043987 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000064 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_15.asset
-  artifactKey: Guid(e4db220ca97c3ab43895c8debffdbf5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_15.asset using Guid(e4db220ca97c3ab43895c8debffdbf5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2787092409a8036f48a041adde646003') in 0.033862 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_4.asset
-  artifactKey: Guid(39d4980425327c141b442c760b307ec6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_4.asset using Guid(39d4980425327c141b442c760b307ec6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a1d486b2f51870d99c87a954cb70959') in 0.044619 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_11.asset
-  artifactKey: Guid(5439773c143d5454ea38b9d3483945dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_11.asset using Guid(5439773c143d5454ea38b9d3483945dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e629efca47282d152c5281c25292cc93') in 0.036215 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000042 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_3.asset
-  artifactKey: Guid(710d2f62afc43e64fa1c3dd00924470d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_3.asset using Guid(710d2f62afc43e64fa1c3dd00924470d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b3600d3ebf70e5a11398c16eb5771223') in 0.056023 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000046 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_18.asset
-  artifactKey: Guid(58ebe5b4bc61ed54f9d5056cb52040bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_18.asset using Guid(58ebe5b4bc61ed54f9d5056cb52040bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '651497afa15b333955d9ad22cd508fad') in 0.090169 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000079 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_7.asset
-  artifactKey: Guid(ba17c1610b7002f4f915604a2c6e0cab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_7.asset using Guid(ba17c1610b7002f4f915604a2c6e0cab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1bcf0dc3eb4046c62d8efc343ac1ba71') in 0.041938 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000049 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_5.asset
-  artifactKey: Guid(f2aae802d1bddba409871385be4be964) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_5.asset using Guid(f2aae802d1bddba409871385be4be964) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05e212294870462e893d70417740e970') in 0.038289 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000073 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_14.asset
-  artifactKey: Guid(7bab09c965618ba469bb44c89c24e87b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_14.asset using Guid(7bab09c965618ba469bb44c89c24e87b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8cb2ea62db3ddf41d7905c28138c93f') in 0.033863 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000059 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_0.asset
-  artifactKey: Guid(22c60e5c499f66342bdf6b3b7f6db3aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_0.asset using Guid(22c60e5c499f66342bdf6b3b7f6db3aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3dae6a0cbf199adf9cc2b9fffa261548') in 0.052331 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000042 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_6.asset
-  artifactKey: Guid(bf91c61899828694d81f0f50970c62e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_6.asset using Guid(bf91c61899828694d81f0f50970c62e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2542b557256d6f77d989e86d2eb420b8') in 0.035734 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000036 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_16.asset
-  artifactKey: Guid(7604f7f422b9eae40b0246bd8a059fb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_16.asset using Guid(7604f7f422b9eae40b0246bd8a059fb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a00d0ec0ca51a0543a67881c4cdd665d') in 0.046796 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000039 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_23.asset
-  artifactKey: Guid(4cc277e2b9a6a5b4d855bf1bcf91be95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_23.asset using Guid(4cc277e2b9a6a5b4d855bf1bcf91be95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff4c75f9c6b3866e2e8a26ca53d6eb51') in 0.033319 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000040 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_2.asset
-  artifactKey: Guid(24d5dfaae1959d9489d04c2de1ebd74e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_2.asset using Guid(24d5dfaae1959d9489d04c2de1ebd74e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a63510af491b1b07813b9f4051afe2a') in 0.047096 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000053 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_12.asset
-  artifactKey: Guid(46700d42a2ae3884db7ba90c5b089fdc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_12.asset using Guid(46700d42a2ae3884db7ba90c5b089fdc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6f061832c58f6566de2cb207920a0cf') in 0.036373 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000042 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_16.asset
-  artifactKey: Guid(dd4aca930edf1424db0bc12f569e2c5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Tiles_16.asset using Guid(dd4aca930edf1424db0bc12f569e2c5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '237367d833566fd26d2ea464c8ffad9f') in 0.061742 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000040 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Road_Tile.asset
-  artifactKey: Guid(9b844d618d0d2104a8ecc7a7ee3251b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Road_Tile.asset using Guid(9b844d618d0d2104a8ecc7a7ee3251b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98e24a531aa5a8d4eb1804f7a66aab4e') in 0.042453 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000048 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_9.asset
-  artifactKey: Guid(686538ab878d9764eaa7481a4f936af7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_9.asset using Guid(686538ab878d9764eaa7481a4f936af7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a459001c6cd0510088829d73188a18d6') in 0.045211 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000183 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_11.asset
-  artifactKey: Guid(e53d1f2c3a7f3e645b3024804586fa75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_11.asset using Guid(e53d1f2c3a7f3e645b3024804586fa75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f83ac4922acc7c6d38d5b7631484f419') in 0.117874 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000063 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_21.asset
-  artifactKey: Guid(26169aeadb292644680c2e00eff9179c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_21.asset using Guid(26169aeadb292644680c2e00eff9179c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '236697f253aa3fa933e79dec65c64291') in 0.396868 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.002814 seconds.
-  path: Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_1.asset
-  artifactKey: Guid(86e05269e1b5ed24581e8e94029a1fd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/2D_Pixel art_Village_Ourdoor/Tiles/Set1_Ourdoor_Decoration_Fence_1.asset using Guid(86e05269e1b5ed24581e8e94029a1fd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1305c7b19b24152fee07af6731a6b6cd') in 0.050570 seconds 
