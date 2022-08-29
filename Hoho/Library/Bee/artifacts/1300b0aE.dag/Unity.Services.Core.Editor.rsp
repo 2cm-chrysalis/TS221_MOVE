@@ -121,6 +121,8 @@
 -define:UNITY_OPERATE_SERVICE_ENABLED
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
+-r:"Assets/AndroidNativeCore/Editor/AndroidNativCoreEditor.dll"
+-r:"Assets/AndroidNativeCore/Plugins/Android/AndroidNativeCore.dll"
 -r:"C:/Dev_Project/Unity_Project/TS2221_MOVE/Hoho/Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll"
 -r:"C:/Dev_Project/Unity_Project/TS2221_MOVE/Hoho/Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll"
 -r:"C:/Dev_Project/Unity_Project/TS2221_MOVE/Hoho/Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll"
