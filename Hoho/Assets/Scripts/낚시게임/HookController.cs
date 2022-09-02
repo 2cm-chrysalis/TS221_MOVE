@@ -31,17 +31,24 @@ public class HookController : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// collision object에는 rigidBody, collider 컴포넌트가 있어야 함. 그리고 OnTriggerEnter2D는 2번 호출됨.
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         GameObject fish = collision.gameObject;
-        if (fish.tag == "fish")
+        Debug.Log(fish);
+        if (fish.tag == "Fish" || fish.tag=="fish")
         {
+            if (fish.GetComponent<Rigidbody2D>().bodyType == RigidbodyType2D.Static) return;
+            fish.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             int a=Convert.ToInt32(point.text.Split("P")[0])+100;
             point.text = a.ToString() + "P<color=black>↑";
             GameObject.Destroy(fish);
+            Physics2D.IgnoreCollision(collision, GetComponent<Collider2D>());
         }
         //handle point
     }
-
-
 }

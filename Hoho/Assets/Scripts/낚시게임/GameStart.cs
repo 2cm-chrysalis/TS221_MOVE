@@ -17,6 +17,17 @@ public class GameStart : MonoBehaviour
     
     private float countTime;
 
+    /// <summary>
+    /// 3, 2, 1, start 카운트 다운 시작 후 게임 재개.
+    /// </summary>
+    public void startGame()
+    {
+        countTime = 0.0f;
+        startText.text = "3";
+        startText.gameObject.SetActive(true);
+        isStarted = false;
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +46,7 @@ public class GameStart : MonoBehaviour
     }
 
     /// <summary>
-    /// 시간에 따라 3, 2, 1을 보여주고 
+    /// 시간에 따라 3, 2, 1, Start! 보여주고 게임 시작. (isStarte=true, isPaused=false)
     /// </summary>
     private void updateTime()
     {
@@ -58,6 +69,7 @@ public class GameStart : MonoBehaviour
             startText.text = "Start!";
             Invoke("disableText", 1.0f);
             isStarted = true;
+            Pause.isPaused = false;
         }
 
         return; 

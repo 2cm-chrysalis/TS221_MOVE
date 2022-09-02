@@ -37,7 +37,7 @@ public class TimeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameStart.isStarted)
+        if (GameStart.isStarted && !Pause.isPaused)
         {
             progressedTime += Time.deltaTime;
             updateTime();
