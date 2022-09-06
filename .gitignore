@@ -8,7 +8,9 @@
 **/[Bb]uild/
 **/[Bb]uilds/
 **/[Ll]ogs/
+**/[Uu]ser[Ss]ettings/
 **/[Mm]emoryCaptures/
+**/[Rr]ecordings/
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
