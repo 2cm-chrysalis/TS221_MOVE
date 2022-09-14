@@ -9,9 +9,11 @@ public class PointListController : MonoBehaviour
 {
     //목록에 사용할 아이콘들.
     public List<Sprite> spriteList;
+
+    public ProgressController progressController;
     
     //목록1, 목록2, 목록3, 목록4
-    private List<GameObject> pointList;
+    private List<GameObject> pointList = new List<GameObject>();
     
 
     public void updateList(Sprite icon, string content, int point)
@@ -23,7 +25,7 @@ public class PointListController : MonoBehaviour
             
             setIcon(targetObject, currentObject.transform.GetChild(0).GetComponent<Image>().sprite);
             setContent(targetObject, currentObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text);
-            setPoint(targetObject, currentObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text);
+            setPoint(targetObject, currentObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text);
         }
 
         setIcon(pointList[0], icon);
@@ -75,9 +77,9 @@ public class PointListController : MonoBehaviour
     /// <param name="content"></param>
     private void setContent(GameObject target, string content)
     {
-        if (content.EndsWith(")"))
+        if (!content.EndsWith(")"))
         {
-            content += "(" + DateTime.Now.Month + "/" + DateTime.Now.Date + ")";
+            content += "(" + DateTime.Now.Month + "/" + DateTime.Now.Day + ")";
         }
         target.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = content;
     }
@@ -89,9 +91,9 @@ public class PointListController : MonoBehaviour
     /// <param name="point"></param>
     private void setPoint(GameObject target, int point)
     {
-        int accumPoint=0;
-        string content = "+"+point+"P"+"("+accumPoint+"P)";
-        target.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = content;
+        int accumPoint=progressController.getCurrentPoint();
+        string content = "+"+point+"P\n"+"("+accumPoint+"P)";
+        target.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = content;
     }
 
     /// <summary>
@@ -101,6 +103,6 @@ public class PointListController : MonoBehaviour
     /// <param name="content"></param>
     private void setPoint(GameObject target, string content)
     {
-        target.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = content;
+        target.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = content;
     }
 }
