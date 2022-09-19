@@ -7,7 +7,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Android : MonoBehaviour {
+public class DemoAndroid : MonoBehaviour {
 
     public Texture2D NotifiBigIcon;
     public Text flashText;
