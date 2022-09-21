@@ -11,3 +11,5 @@ Hoho/Library/PackageCache filter=lfs diff=lfs merge=lfs -text
 Hoho/Library/PackageCache/* filter=lfs diff=lfs merge=lfs -text
 Hoho/Library/PackageCache/** filter=lfs diff=lfs merge=lfs -text
 Hoho/Assets/Firebase/Plugins/x86_64/FirebaseCppApp-9_4_0.bundle filter=lfs diff=lfs merge=lfs -text
+Hoho/Assets/TextMesh[[:space:]]Pro/Fonts/Maplestory[[:space:]]Light[[:space:]]SDF.asset filter=lfs diff=lfs merge=lfs -text
+Hoho/Assets/TextMesh[[:space:]]Pro/Resources/Fonts[[:space:]]&[[:space:]]Materials/LiberationSans[[:space:]]SDF[[:space:]]-[[:space:]]Fallback.asset filter=lfs diff=lfs merge=lfs -text
