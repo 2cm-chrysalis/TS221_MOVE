@@ -1,9 +1,3 @@
-#if UNITY_ANDROID //&& !UNITY_EDITOR
-#define UNITY_ANDROID_RUNTIME
-#endif
-
-
-#if UNITY_ANDROID_RUNTIME
 namespace Android.Data
 {
     public struct BleScannedDevice
@@ -24,4 +18,3 @@ namespace Android.Data
         }
     }
 }
-#endif

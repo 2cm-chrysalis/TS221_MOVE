@@ -1,9 +1,3 @@
-#if UNITY_ANDROID //&& !UNITY_EDITOR
-#define UNITY_ANDROID_RUNTIME
-#endif
-
-
-#if UNITY_ANDROID_RUNTIME
 using System.Collections;
 using System;
 using UnityEngine;
@@ -51,4 +45,3 @@ namespace Android
 
     }
 }
-#endif

@@ -1,11 +1,3 @@
-#if UNITY_ANDROID //&& !UNITY_EDITOR
-#define UNITY_ANDROID_RUNTIME
-#endif
-
-
-#if UNITY_ANDROID_RUNTIME
-using System;
-
 namespace Android.Data
 {
     public struct BleCharacteristicData
@@ -51,4 +43,3 @@ namespace Android.Data
         }
     }
 }
-#endif
