@@ -14,6 +14,12 @@ public class BreatheRecordController : MonoBehaviour
     [Tooltip("호흡기록패널")]
     public GameObject breathePannel;
 
+
+    public int percent;
+    public int hour;
+    public int minute;
+    public bool isAM;
+
     /// <summary>
     /// 막대를 생성함. percent는 69%
     /// </summary>
@@ -21,32 +27,35 @@ public class BreatheRecordController : MonoBehaviour
     /// <param name="hour"></param>
     /// <param name="minute"></param>
     /// <param name="isAM"></param>
-    public void makeBar(int percent, int hour, int minute, bool isAM=false)
+    
+    //public void makeBar(int percent, int hour, int minute, bool isAM=false)
+    public void makeBar()    
     {
-        Instantiate(barPrefab, content.transform);
+        GameObject bar=Instantiate(barPrefab, content.transform);
         
-        GameObject ratio=barPrefab.transform.Find("달성률").gameObject;        
-        GameObject button= barPrefab.transform.Find("button").gameObject;
-        GameObject icon = barPrefab.transform.Find("icon").gameObject;
-        TextMeshProUGUI timeText = barPrefab.transform.Find("시간").gameObject.GetComponent<TextMeshProUGUI>();
+        GameObject ratio=bar.transform.Find("달성률").gameObject;        
+        GameObject button= bar.transform.Find("Button").gameObject;
+        GameObject icon = bar.transform.Find("아이콘").gameObject;
+        TextMeshProUGUI timeText = bar.transform.Find("시간").gameObject.GetComponent<TextMeshProUGUI>();
 
         //icon 변경
         icon.GetComponent<Image>();
 
         //버튼 조절
         button.GetComponent<Button>().onClick.AddListener(makeGraph);
-        button.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, percent*3);
+        button.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, (GameObject.Find("Y축").GetComponent<RectTransform>().sizeDelta.y-50f)*percent/100f);
+        button.GetComponent<RectTransform>().anchoredPosition = new Vector2(button.GetComponent<RectTransform>().anchoredPosition.x, GameObject.Find("X축").GetComponent<RectTransform>().rect.yMax);
 
         //달성률 변경
         ratio.GetComponent<TextMeshProUGUI>().text = percent + "%";
-        ratio.transform.localPosition=new Vector2(ratio.transform.localPosition.x, button.GetComponent<RectTransform>().rect.yMax+0.1f);
+        ratio.GetComponent<RectTransform>().anchoredPosition=new Vector2(ratio.GetComponent<RectTransform>().anchoredPosition.x, button.GetComponent<RectTransform>().rect.yMax+50f);
 
         //시간 변경
-        timeText.text = hour + ":" + minute + (isAM ? "AM" : "PM"); 
+        timeText.text = hour + ":" + minute + (isAM ? "AM" : "PM");         
         
         void makeGraph()
         {
-            GameObject.Find("호흡기록패널").SetActive(true);
+            breathePannel.SetActive(true);
             GameObject.Find("홈화면패널").SetActive(false);
             return;
         }
