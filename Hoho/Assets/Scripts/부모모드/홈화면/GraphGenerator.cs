@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.UI.Extensions;
 
 public class GraphGenerator : MonoBehaviour
 {
     [Tooltip("그래프의 점")]
     public GameObject dotPrefab;
     [Tooltip("그래프 점 사이의 선")]
-    public GameObject linePrefab;
+    public UILineRenderer lineRenderer;
 
     [Tooltip("호흡그래프의 content")]
     public GameObject content;
@@ -21,7 +23,7 @@ public class GraphGenerator : MonoBehaviour
     public Dictionary<int, int> data=new Dictionary<int, int>();
 
     [Tooltip("한 화면에 보일 점의 개수")]
-    public int dotNum;
+    public int dotNum=10;
 
 
     /// <summary>
@@ -46,44 +48,41 @@ public class GraphGenerator : MonoBehaviour
         //그래프 그리기.
         foreach (KeyValuePair<int, int> datum in data)
         {
+            
             GameObject dot=Instantiate(dotPrefab, content.transform);
+            dots.Add(dot);
 
-            dot.GetComponent<RectTransform>().anchoredPosition = new Vector2(30f+yAxis.GetComponent<RectTransform>().anchoredPosition.x + datum.Key * 30, xAxis.GetComponent<RectTransform>().anchoredPosition.y - 30f);
-            dot.transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition = new Vector2(0, yAxis.GetComponent<RectTransform>().rect.height*(datum.Value/100f));
+            float xSpacing = content.transform.parent.parent.GetComponent<RectTransform>().sizeDelta.x/dotNum;
+            Debug.Log("xSpacing : " + xSpacing);
 
+
+            dot.GetComponent<RectTransform>().anchoredPosition = new Vector2(30f+yAxis.GetComponent<RectTransform>().anchoredPosition.x + datum.Key * xSpacing , xAxis.GetComponent<RectTransform>().anchoredPosition.y - 30f);
+            dot.transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition = new Vector2(0, xAxis.GetComponent<RectTransform>().rect.yMax+yAxis.GetComponent<RectTransform>().rect.height*(0.01f+datum.Value/100f));
            
             Debug.Log("rectPosition of "+datum.Key+" : "+ dot.GetComponent<RectTransform>().anchoredPosition);
             Debug.Log(datum);
 
             dot.GetComponent<TextMeshProUGUI>().text = datum.Key.ToString();
-            dots.Add(dot);
+            //dot.GetComponent<TextMeshProUGUI>().fontSize=
         }
 
-        for(int i=0; i<dots.Count-1; i++)
+        //draw lines
+        List<Vector2> tempPoints =new List<Vector2>();
+
+        for(int i=0; i<dots.Count; i++)
         {
-            drawLine(dots[i].GetComponent<RectTransform>().anchoredPosition+ dots[i].transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition, dots[i+1].GetComponent<RectTransform>().anchoredPosition + dots[i + 1].transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition);
+            tempPoints.Add(dots[i].GetComponent<RectTransform>().anchoredPosition+ dots[i].transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition);
         }
-    }
 
-    public void drawLine(Vector2 start, Vector2 end)
-    {
-        Vector3 differenceVector = end - start;
-        GameObject line = Instantiate(linePrefab, content.transform);
-        RectTransform imageRectTransform = line.GetComponent<RectTransform>();
-
-        imageRectTransform.anchorMin = imageRectTransform.anchorMax = new Vector2(0, 0);  //앵커 설정
-
-        imageRectTransform.sizeDelta = new Vector2(differenceVector.magnitude, 10.0f);
-        imageRectTransform.pivot = new Vector2(0, 0f);
-        imageRectTransform.position = start;
-        float angle = Mathf.Atan2(differenceVector.y, differenceVector.x) * Mathf.Rad2Deg;
-        imageRectTransform.rotation = Quaternion.Euler(0, 0, angle);
+        lineRenderer.Points = tempPoints.ToArray();
+        
+        content.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, dots[dots.Count-1].GetComponent<RectTransform>().anchoredPosition.x);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        for (int i=0; i<10; i++)
+        for (int i=0; i<100; i++)
         {
             data.Add(i, Mathf.RoundToInt(Mathf.Sin(i)*50+50 ));
         }
