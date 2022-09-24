@@ -33,15 +33,22 @@ public class BreatheRecordController : MonoBehaviour
         //icon 변경
         icon.GetComponent<Image>();
 
-        //진행률 변경
-        ratio.GetComponent<TextMeshProUGUI>().text = percent + "%";
-        ratio.transform.localPosition=new Vector2(ratio.transform.localPosition.x, button.GetComponent<RectTransform>().rect.yMax+10f);
-
+        //버튼 조절
         button.GetComponent<Button>().onClick.AddListener(makeGraph);
+        button.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, percent*3);
+
+        //달성률 변경
+        ratio.GetComponent<TextMeshProUGUI>().text = percent + "%";
+        ratio.transform.localPosition=new Vector2(ratio.transform.localPosition.x, button.GetComponent<RectTransform>().rect.yMax+0.1f);
+
+        //시간 변경
+        timeText.text = hour + ":" + minute + (isAM ? "AM" : "PM"); 
         
         void makeGraph()
         {
-            return; 
+            GameObject.Find("호흡기록패널").SetActive(true);
+            GameObject.Find("홈화면패널").SetActive(false);
+            return;
         }
     }
 
