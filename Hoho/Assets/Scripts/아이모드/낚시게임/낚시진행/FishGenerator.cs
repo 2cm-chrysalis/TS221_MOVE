@@ -21,7 +21,7 @@ public class FishGenerator : MonoBehaviour
     public GameObject fish1;
 
     [Header("»ý¼º ³ô³·ÀÌ ÃÖÀú ")]
-    public float screenMin = -3.7f;
+    public float screenMin = -3.0f;
     public float screenMax = 2.0f;
 
     [Header("È£Èí ±×·¡ÇÁ")]
@@ -52,7 +52,7 @@ public class FishGenerator : MonoBehaviour
         respawnTime = 0.0f;
         yScreenHalfSize = Camera.main.orthographicSize;
         xScreenHalfSize = yScreenHalfSize * Camera.main.aspect;
-        screenMin = yScreenHalfSize / 5.0f * -3.7f;
+        screenMin = yScreenHalfSize / 5.0f * -3.0f;
         screenMax = yScreenHalfSize / 5.0f * 2.0f;
     }
 
@@ -95,13 +95,18 @@ public class FishGenerator : MonoBehaviour
         if (FishArrivalTime.getArrivalTime() != 0.0f)
         {
             hookPos = breathPos(Mathf.Clamp(timeController.getProgressedTime() - FishArrivalTime.getArrivalTime(), 0f, timeController.getProgressedTime()));
-            hookPos = (hookPos - (screenMax + screenMin) / 2) / (screenMax - screenMin) * (3.75f + 2.3f) + (3.75f - 2.3f) / 2.0f * ScalingOnGaming.yScaler;
+            Debug.Log("breathPos : "+hookPos);
+            //hookPos = (hookPos - (screenMax + screenMin) / 2) / (screenMax - screenMin) * (3.75f + 2.3f) + (3.75f - 2.3f) / 2.0f * ScalingOnGaming.yScaler;            
+            //ScreenMin~ScreenMax -> 0~1
+            hookPos = (hookPos - screenMin) / (screenMax - screenMin);
         }
-        else { 
-            hookPos = -2.3f*ScalingOnGaming.yScaler; 
+        else {
+            hookPos = 0; 
         }
         //Debug.Log("¹Ù´Ã : "+hookyPos);  
         GameObject.Find("³¬½Ë¹Ù´Ã").GetComponent<HookController>().setPosition(hookPos);
+
+
     }
 
     /// <summary>

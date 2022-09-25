@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 어선/빈사각형의 script.
+/// </summary>
 public class FishArrivalTime : MonoBehaviour
 {
     public static GameObject guideSquare;
