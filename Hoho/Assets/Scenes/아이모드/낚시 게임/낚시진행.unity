@@ -1173,7 +1173,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527835415}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.5, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 0.6930667, y: 0.6666667, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1625,7 +1625,6 @@ GameObject:
   - component: {fileID: 790254505}
   - component: {fileID: 790254507}
   - component: {fileID: 790254508}
-  - component: {fileID: 790254510}
   - component: {fileID: 790254511}
   m_Layer: 0
   m_Name: GameManager
@@ -1695,7 +1694,7 @@ MonoBehaviour:
   bubble: {fileID: 7841944027614288463, guid: 6393b6ba71b21f64f9f6a0989a3bb2e5, type: 3}
   wooper_looper: {fileID: 2778436366374404260, guid: 271dc6b296141f64ca7e9d387f799313, type: 3}
   fish1: {fileID: 8929412811581180888, guid: a50c7f13ebb4b644b98d44bc022a9036, type: 3}
-  screenMin: -3.7
+  screenMin: -3
   screenMax: 2
   upTime: 4
   upWaitTime: 1
@@ -1724,21 +1723,6 @@ MonoBehaviour:
   - wooper looper
   - Yellow Cichlid
   respawnPeriod: 0.7
---- !u!114 &790254510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 790254504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 671176cc364cc7b4a955e49db73499b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrivalTimeStatic: 0
-  timeController: {fileID: 644261389}
-  fishGenerator: {fileID: 790254508}
 --- !u!114 &790254511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2551,8 +2535,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876160924}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.026666641, y: -2.6476667, z: 0}
-  m_LocalScale: {x: 0.6666667, y: 4.7225075, z: 1}
+  m_LocalPosition: {x: 0.026666641, y: -2.4106, z: 0}
+  m_LocalScale: {x: 0.6666667, y: 4.248368, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 362121529}
@@ -2747,8 +2731,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1986500904}
   - component: {fileID: 1986500905}
+  - component: {fileID: 1986500907}
+  - component: {fileID: 1986500906}
   m_Layer: 0
-  m_Name: Square
+  m_Name: "\uBE48\uC0AC\uAC01\uD615"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2762,8 +2748,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1986500903}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.020400047, y: -2.1922002, z: 0}
-  m_LocalScale: {x: 0.9068142, y: 1.2064047, z: 1}
+  m_LocalPosition: {x: 0.020400047, y: -1.944, z: 0}
+  m_LocalScale: {x: 0.9068142, y: 1.108686, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 362121529}
@@ -2821,6 +2807,47 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1986500906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986500903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 671176cc364cc7b4a955e49db73499b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrivalTimeStatic: 0
+  timeController: {fileID: 644261389}
+  fishGenerator: {fileID: 790254508}
+--- !u!61 &1986500907
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986500903}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.12, y: 5.08}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 5}
+  m_EdgeRadius: 0
 --- !u!1 &2006224195
 GameObject:
   m_ObjectHideFlags: 0
@@ -2959,6 +2986,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   point: {fileID: 599897768}
+  chainYmin: -1
+  chainYmax: 2.5
 --- !u!61 &2083800791
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3024,6 +3053,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   point: {fileID: 599897768}
+  chainYmin: -1
+  chainYmax: 2.5
 --- !u!1 &2106376473
 GameObject:
   m_ObjectHideFlags: 0
