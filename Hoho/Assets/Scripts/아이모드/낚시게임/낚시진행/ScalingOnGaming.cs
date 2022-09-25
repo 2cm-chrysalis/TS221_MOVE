@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ScalingOnGaming : MonoBehaviour
 {
 
-    public static float xScreenHalfSizeBase=8.890215f;
+    public static float xScreenHalfSizeBase= 8.888889f;
     public static float yScreenHalfSizeBase = 5f;
     public static float xScaler;
     public static float yScaler;
@@ -23,19 +23,19 @@ public class ScalingOnGaming : MonoBehaviour
 
         float yScreenHalfSize = Camera.main.orthographicSize;
         float xScreenHalfSize = yScreenHalfSize * Camera.main.aspect;
+        
         xScaler = xScreenHalfSize / xScreenHalfSizeBase;
         yScaler = yScreenHalfSize / yScreenHalfSizeBase;
 
-        Vector2 clockPos = new Vector2((clockRect.position.x / (float)Screen.width - 0.5f) * xScreenHalfSize, (clockRect.position.y / Screen.height - 0.5f) * yScreenHalfSize);
+        Vector2 clockPos = new Vector2((clockRect.position.x / Screen.width - 0.5f) * xScreenHalfSize, (clockRect.position.y / Screen.height - 0.5f) * yScreenHalfSize);
 
         Debug.Log("y is "+yScreenHalfSize);
         Debug.Log("x is "+xScreenHalfSize);
 
-        boat.transform.localScale = new Vector3(xScreenHalfSize/ 8.890215f, yScreenHalfSize/5.0f, 1);
-        boat.transform.position = new Vector3(xScreenHalfSize / 8.890215f * -6.2f, yScreenHalfSize / 5.0f * 3.4f, 1);
-
+        boat.transform.localScale = new Vector2(xScreenHalfSize/ 8.890215f*1.5f, yScreenHalfSize/5.0f*1.5f);
+        boat.transform.position = new Vector2(xScreenHalfSize / 8.890215f * -7.15f, yScreenHalfSize / 5.0f * 3.4f);
         
-        background.transform.localScale= new Vector3(xScreenHalfSize / xScreenHalfSizeBase * 2.897845f, yScreenHalfSize / yScreenHalfSizeBase * 2.959679f, 1);
+        background.transform.localScale= new Vector3(xScreenHalfSize / xScreenHalfSizeBase * 1.579981f, yScreenHalfSize / yScreenHalfSizeBase * 1.888991f, 1);
 
     }
 

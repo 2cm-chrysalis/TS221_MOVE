@@ -11,11 +11,16 @@ public class HookController : MonoBehaviour
 
     /// <summary>
     /// 낚싯대의 y좌표를 조절. y값이 너무 작거나 큰 경우에 대비해 Mathf.Clamp 사용.
+    /// y=0~1로 두면 됨. 
     /// </summary>
     /// <param name="y"></param>
     public void setPosition(float y)
     {
-        y = Mathf.Clamp(y, -2.3f* ScalingOnGaming.yScaler, 3.75f*ScalingOnGaming.yScaler);
+        //사슬의 y좌표는 -1.5~2.5.
+        //0~1 -> -1.5~2.5로 보내기.
+        y = Mathf.Clamp(y, 0f, 1f);
+        y = (4.0f * y - 1.5f) * ScalingOnGaming.yScaler;
+        
         this.transform.parent.transform.localPosition = new Vector2(this.transform.parent.localPosition.x, y);
         Debug.Log("사실의 실제 pos :" + transform.parent.localPosition);
         Debug.Log("사슬의 y : "+y);
@@ -46,7 +51,7 @@ public class HookController : MonoBehaviour
             if (fish.GetComponent<Rigidbody2D>().bodyType == RigidbodyType2D.Static) return;
             fish.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             int a=Convert.ToInt32(point.text.Split("P")[0])+100;
-            point.text = a.ToString() + "P<color=black>↑";
+            point.text = a.ToString();
             GameObject.Destroy(fish);
             Physics2D.IgnoreCollision(collision, GetComponent<Collider2D>());
         }
