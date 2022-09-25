@@ -35,6 +35,8 @@ public class AndroidBLEPluginStart : MonoBehaviour
     private float updateTime = 0.0f;
     private float scanTime = 0.0f;
 
+    private bool isConnecting = false;
+
     private static bool isScanning = false;
 
 
@@ -76,13 +78,7 @@ public class AndroidBLEPluginStart : MonoBehaviour
     }
 
 
-
-#if UNITY_ANDROID && !UNITY_EDITOR
-#define UNITY_ANDROID_RUNTIME
-#endif
-
-
-#if UNITY_ANDROID_RUNTIME
+#if UNITY_ANDROID //&& !UNITY_EDITOR
     // Start is called before the first frame update
     void Start()
     {
@@ -97,8 +93,18 @@ public class AndroidBLEPluginStart : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //연결이 끊긴 경우에 connecting=false;
+        if (isConnected)
+        {
+            isConnected = _bleControlObj.Call<bool>("isConnected");
+            if (!isConnected)
+            {
+                isConnecting = false;
+            }
+        }
         isConnected = _bleControlObj.Call<bool>("isConnected");
-        updateTime+=Time.deltaTime;
+
+        updateTime +=Time.deltaTime;
         if (updateTime > updateTimeLimit)
         {
 
@@ -111,14 +117,14 @@ public class AndroidBLEPluginStart : MonoBehaviour
             updateTime = 0.0f;
         }
 
-        if (isScanning)
+        if (isScanning || isConnecting)
         {
             ScanBtn.enabled = false;
             ScanBtn.GetComponentInChildren<TextMeshProUGUI>().text="연결 중....";
             scanTime += Time.deltaTime;
             if (scanTime > scanTimeLimit) 
             {
-                AndroidBLEPluginSample._bleControlObj.Call("tidyUpScanned_devices");
+                AndroidBLEPluginStart._bleControlObj.Call("tidyUpScanned_devices");                
                 stopScan(); 
             }
         }
@@ -126,10 +132,16 @@ public class AndroidBLEPluginStart : MonoBehaviour
         {
             ScanBtn.enabled = true;
             ScanBtn.GetComponentInChildren<TextMeshProUGUI>().text = "벨트 연결";
-            scanTime = 0.0f;
+            scanTime = 0.0f;            
             if (scannedDevices.Count>0){
-                scannedDevices[0]
-                AndroidBLEPluginStart._bleControlObj.Call<string>("connectExternal", targetDevice || scannedDevices[0].address);
+                if (!isConnecting)
+                {
+                    //스캔은 됐으나 연결이 안 된 경우 자동으로 연결 시도. 5초 후에 다시 시도.
+                    Debug.LogError("device name : "+scannedDevices[0].name);
+                    AndroidBLEPluginStart._bleControlObj.Call<string>("connectExternal", scannedDevices[0].address);
+                    isConnecting = true;
+                    Invoke("checkConnecting", 15f);
+                }
             }
         }
         else
@@ -279,4 +291,12 @@ public class AndroidBLEPluginStart : MonoBehaviour
         return -1;
     }
 
+
+    private void checkConnecting()
+    {
+        if (!isConnected)
+        {
+            isConnecting = false;
+        }
+    }
 }

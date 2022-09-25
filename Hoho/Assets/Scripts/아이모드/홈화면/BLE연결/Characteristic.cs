@@ -15,12 +15,13 @@ public class Characteristic : MonoBehaviour
     public TextMeshProUGUI Value;
 
     public float updateTimeLimit = 0.1f;
+    public static int value=0;
 
     private float updateTime = 0.0f;
-    private string serviceUuid;
-    private string uuid;
+    private string serviceUuid= "180c";
+    private string uuid = "6eea5885-ed94-4731-b81a-00eb60d93b49";
 
-    private int value;
+    private List<string> notifiedList = new List<string>();
 
     public void setUuid(string DeviceAddress, string ServiceUuid, string Uuid)
     {
@@ -31,6 +32,7 @@ public class Characteristic : MonoBehaviour
 
     private void Start()
     {
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Update()
@@ -41,34 +43,48 @@ public class Characteristic : MonoBehaviour
 
         if(serviceUuid==null || uuid == null) { return; }
 
-
         if (updateTime > updateTimeLimit)
         {
+            Debug.LogError("characteristic update start");
             List<BleCharacteristicData> characteristicDatas = AndroidBLEPluginStart.characteristicDatas;
 
-            BleCharacteristicData characteristic = characteristicDatas.Find(x => (x.serviceUuid == serviceUuid) && (x.characteristicUuid == uuid));
+            BleCharacteristicData characteristic = characteristicDatas.Find(x => (x.serviceUuid.Contains(serviceUuid) && (x.characteristicUuid == uuid)));
+            foreach(BleCharacteristicData ch in characteristicDatas)
+            {                
+                if (!notifiedList.Contains(ch.serviceUuid+ch.characteristicUuid))
+                {
+                    Debug.Log("serviceUuid : " + ch.serviceUuid + ", " + "characteristicUuid : " + ch.characteristicUuid+"\n");
+                    AndroidBLEPluginStart._bleControlObj.Call<bool>("setNotification", ch.serviceUuid, ch.characteristicUuid, true);
+                    notifiedList.Add(ch.serviceUuid+ch.characteristicUuid);
+                    Debug.Log("notification done.");                  
+                }
+            }
 
-            //Find가 실패할 수 있음.
-            try
+            //Find가 실패할 수 있음.           
+            try 
+            {                
+                characteristic.serviceUuid.Contains("");
+            }
+            catch
             {
-                characteristic.serviceUuid+="";
-            }catch
-            {
-                Debug.LogError("UUID matching error");
-                characteristic = characteristicDatas.FindLast(x => true);
+                Debug.LogError("characteristic was null");
+                characteristic = characteristicDatas.Find(x => x.hasData);
             }
 
             if (characteristic.serviceUuid != null)
             {
                 if (!characteristic.hasData)
                 {
+                    Debug.Log("service : "+characteristic.serviceUuid+", character : "+characteristic.characteristicUuid);
                     Value.text = "Value : No value";
-                    AndroidBLEPluginStart._bleControlObj.Call<bool>("setNotification", serviceUuid, uuid, true);
+                    AndroidBLEPluginStart._bleControlObj.Call<bool>("setNotification", characteristic.serviceUuid, characteristic.characteristicUuid, true);
                     return;
                 }
 
                 updateValue(uuid, characteristic.intData);
+                UUID.text = "UUID : " + characteristic.characteristicUuid;
             }
+            Debug.LogError("characteristic update Done.");
             updateTime = 0f;
         }
     }
