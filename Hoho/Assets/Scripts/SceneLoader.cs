@@ -17,9 +17,16 @@ public class SceneLoader : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        if (!SceneManager.GetActiveScene().name.Contains("³¬½Ã"))
+        {
+            Screen.orientation = ScreenOrientation.Portrait;
+            Screen.autorotateToPortrait = true;
+            Screen.autorotateToPortraitUpsideDown = true;
+            Screen.autorotateToLandscapeLeft = false;
+            Screen.autorotateToLandscapeRight = false;
+        }
     }
 
     // Update is called once per frame

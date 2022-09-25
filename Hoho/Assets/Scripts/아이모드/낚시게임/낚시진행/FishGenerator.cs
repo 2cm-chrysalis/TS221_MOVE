@@ -43,12 +43,17 @@ public class FishGenerator : MonoBehaviour
     public float respawnPeriod=0.7f;
     private float respawnTime = 0.0f;
 
-    private float yScreenHalfSize;
-    private float xScreenHalfSize;
+    [SerializeField] private float yScreenHalfSize;
+    [SerializeField] private float xScreenHalfSize;
 
     // Start is called before the first frame update
     void Start()
     {
+        Invoke("StartFunction", 0.2f);
+    }
+
+    private void StartFunction()
+    {        
         respawnTime = 0.0f;
         yScreenHalfSize = Camera.main.orthographicSize;
         xScreenHalfSize = yScreenHalfSize * Camera.main.aspect;
@@ -99,6 +104,7 @@ public class FishGenerator : MonoBehaviour
             //hookPos = (hookPos - (screenMax + screenMin) / 2) / (screenMax - screenMin) * (3.75f + 2.3f) + (3.75f - 2.3f) / 2.0f * ScalingOnGaming.yScaler;            
             //ScreenMin~ScreenMax -> 0~1
             hookPos = (hookPos - screenMin) / (screenMax - screenMin);
+            Debug.Log("hookPos : " + hookPos);
         }
         else {
             hookPos = 0; 

@@ -20,12 +20,12 @@ public class HookController : MonoBehaviour
     public void setPosition(float y)
     {
         //사슬의 y좌표는 -1~2.5.
-        //0~1 -> -1.5~2.5로 보내기.
+        //0~1 -> -1~2.5로 보내기.
         y = Mathf.Clamp(y, 0f, 1f);
         y = ((chainYmax-chainYmin) * y + chainYmin) * ScalingOnGaming.yScaler;
         
         this.transform.parent.transform.localPosition = new Vector2(this.transform.parent.localPosition.x, y);
-        Debug.Log("사실의 실제 pos :" + transform.parent.localPosition);
+        Debug.Log("사슬의 실제 pos :" + transform.parent.localPosition);
         Debug.Log("사슬의 y : "+y);
     }
 
