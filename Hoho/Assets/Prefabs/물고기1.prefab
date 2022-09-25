@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 48ea315dfec466d4e94a75446ade0148, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 734f78a6c9e834645b9fb8806692ffd2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -121,8 +121,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.05, y: -0.1}
-  m_Size: {x: 2.2, y: 0.8}
+  m_Offset: {x: 0.05, y: 0}
+  m_Size: {x: 3, y: 1}
   m_Direction: 1
 --- !u!114 &4887837823550611938
 MonoBehaviour:
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishName: 
-  speed: 2
+  isArrived: 0
   fishList:
   - bubble
   - angel

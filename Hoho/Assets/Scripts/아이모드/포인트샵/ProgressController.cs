@@ -16,26 +16,27 @@ public class ProgressController : MonoBehaviour
     /// </summary>
     public static int level;
     /// <summary>
-    /// 원 안에 있는 텍스트. 가령, <1>2370P 놀이공원.  
+    /// 원 안에 있는 텍스트. 가령, "놀이공원".  
     /// </summary>
-    public static string totalPointContent;
+    public static string rewardTitle;
+    /// <summary>
+    /// 원 안에 있는 레벨  
+    /// </summary>
+    public static int currentLevel;
+
+    /// <summary>
+    /// 원 안에 있는 포인트 string. 가령 "<U>1</U> <U>2</U>"  
+    /// </summary>
+    public static string pointString;
+
     /// <summary>
     /// 현재 점수/목표 점수
     /// </summary>
     public static float progressRatio;
 
-
-
-
-
     public int pointTest;
     public int levelTest;
-    public string totalPointContentTest;
-
-
-
-
-
+    public string rewardTitleTest;
 
 
 
@@ -81,7 +82,7 @@ public class ProgressController : MonoBehaviour
     {
         pointTest=point; 
         levelTest=level;
-        totalPointContentTest=totalPointContent;
+        rewardTitleTest=rewardTitle;
     }
 
     /// <summary>
@@ -92,7 +93,10 @@ public class ProgressController : MonoBehaviour
         currentPoint.text = "현재  " + ProgressController.point;
         ProgressController.level = Math.Max(1, level);
         updateLevel(level);
-        GameObject totalPoint = GameObject.Find("전체포인트");        
+        GameObject rewardTitle = GameObject.Find("보상제목");
+        TextMeshProUGUI currentLevel = GameObject.Find("단계Text").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI pointText = GameObject.Find("현재포인트Text").GetComponent<TextMeshProUGUI>();
+        
 
         GameObject.Find("Canvas").transform.Find("보상목록").gameObject.SetActive(true);
         var rows = GameObject.FindGameObjectsWithTag("row");
@@ -103,14 +107,16 @@ public class ProgressController : MonoBehaviour
             level = rows.Length-1;
             Debug.Log("레벨 상한 도달");
         }
-        
-        totalPointContent = totalPoint.GetComponent<TextMeshProUGUI>().text = "<" + level + ">\n" + parsePoint(currentPoint) + "P\n" + getContentfromRow(rows[level-1]);
+
+        currentLevel.GetComponent<TextMeshProUGUI>().text = level.ToString();
+
+        ProgressController.pointString = pointText.text = pointToString(parsePoint(currentPoint));
+        ProgressController.rewardTitle=rewardTitle.GetComponent<TextMeshProUGUI>().text = getContentfromRow(rows[level-1]);
         goalPoint.text = "완성  " + getGoalfromRow(rows[level-1]);
 
         Debug.Log(goalPoint.text);
 
-        updateProgress();
-        
+        updateProgress();        
     }
 
 
@@ -129,6 +135,17 @@ public class ProgressController : MonoBehaviour
                 tempNum += point.text[i];
         }
         return Int32.Parse(tempNum);
+    }
+
+    private string pointToString(int point)
+    {
+        
+        string tempPoint = null;
+        for (int i = 0; i < point.ToString().Length; i++)
+        {
+            tempPoint += "<U>" + point.ToString()[i] + "</U> ";
+        }
+        return tempPoint;
     }
 
     /// <summary>
@@ -196,12 +213,9 @@ public class ProgressController : MonoBehaviour
     /// </summary>
     private void updateTotalPoint()
     {
-        GameObject totalPoint = GameObject.Find("전체포인트");  //전체포인트는 진행상황영역/포인트동그라미/innerBoder/ContentArea의 하위 요소.
-        string currentText = totalPoint.GetComponent<TextMeshProUGUI>().text;
-        string changeText = currentText.Substring(currentText.IndexOf("\n") + 1);
-        changeText=changeText.Substring(0, changeText.IndexOf("P")+1);
+        TextMeshProUGUI currentPoint = GameObject.Find("현재포인트Text").GetComponent<TextMeshProUGUI>();  //현재포인트Text는 진행상황영역/포인트동그라미/innerBoder/ContentArea의 하위 요소.
 
-        totalPointContent=totalPoint.GetComponent<TextMeshProUGUI>().text = currentText.Replace(changeText, getCurrentPoint()+"P");
+        ProgressController.pointString=currentPoint.text=pointToString(getCurrentPoint());
     }
 
     /// <summary>
@@ -236,11 +250,17 @@ public class ProgressController : MonoBehaviour
         }
         else    //level이 1인 경우, rows의 0번째에 해당.
         {
-            GameObject totalPoint = GameObject.Find("전체포인트");
+            GameObject rewardTitle = GameObject.Find("보상제목");
+            TextMeshProUGUI currentLevel = GameObject.Find("단계Text").GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI pointText = GameObject.Find("현재포인트Text").GetComponent<TextMeshProUGUI>();
+
             currentPoint.text = "현재  0";
 
             level += 1;
-            totalPointContent = totalPoint.GetComponent<TextMeshProUGUI>().text = "<" + level+ ">\n" + parsePoint(currentPoint) + "P\n" + getContentfromRow(rows[level-1]);
+
+            currentLevel.text = level.ToString();
+            pointString = pointText.text = pointToString(parsePoint(currentPoint));
+            ProgressController.rewardTitle = rewardTitle.GetComponent<TextMeshProUGUI>().text = getContentfromRow(rows[level-1]);
 
             goalPoint.text = "완성  " + getGoalfromRow(rows[level-1]);
             pointRatio.text = "0%";

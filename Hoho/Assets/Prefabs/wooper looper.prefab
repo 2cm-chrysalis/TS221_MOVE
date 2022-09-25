@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2781135904288836788}
   - component: {fileID: 2628776033782318340}
-  - component: {fileID: 2872015419031667326}
   - component: {fileID: 224770110980449507}
   - component: {fileID: 556530248669396093}
   - component: {fileID: 5535621425589154522}
@@ -30,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2778436366374404260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.86, y: -2.54, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c2f6b705e2c900c478b9bb81a09f332a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ff1730f5c39444348bb3a8525856c909, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -88,26 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &2872015419031667326
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2778436366374404260}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: badf6e4c69c628444b37c47d583629a0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &224770110980449507
 Rigidbody2D:
   serializedVersion: 4
@@ -142,8 +121,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.1}
-  m_Size: {x: 2.8, y: 0.9}
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.6, y: 1}
   m_Direction: 1
 --- !u!114 &5535621425589154522
 MonoBehaviour:
@@ -158,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishName: 
-  speed: 2
+  isArrived: 0
   fishList:
   - bubble
   - angel

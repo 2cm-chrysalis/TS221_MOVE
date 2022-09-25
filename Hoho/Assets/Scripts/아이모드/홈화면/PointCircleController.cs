@@ -9,7 +9,14 @@ public class PointCircleController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.Find("전체포인트").GetComponentInChildren<TextMeshProUGUI>().text = ProgressController.totalPointContent;
+        TextMeshProUGUI rewardTitle = GameObject.Find("보상제목").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI currentLevel = GameObject.Find("단계Text").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI pointText = GameObject.Find("현재포인트Text").GetComponent<TextMeshProUGUI>();
+
+        rewardTitle.text = ProgressController.rewardTitle;
+        currentLevel.text = ProgressController.currentLevel.ToString();
+        pointText.text = ProgressController.pointString;
+
         GetComponent<Slider>().value = ProgressController.progressRatio;
     }
 
