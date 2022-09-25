@@ -29,7 +29,7 @@ public class ScalingOnGaming : MonoBehaviour
     void Start()
     {
 
-        Invoke("scaling", 0.15f);
+        Invoke("scaling", 0.3f);
 
     }
 

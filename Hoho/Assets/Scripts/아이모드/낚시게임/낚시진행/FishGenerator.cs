@@ -49,7 +49,7 @@ public class FishGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("StartFunction", 0.2f);
+        Invoke("StartFunction", 0.4f);
     }
 
     private void StartFunction()
@@ -97,21 +97,28 @@ public class FishGenerator : MonoBehaviour
         setGuideText(timeController.getProgressedTime());
 
         /*³ªÁß¿¡ ¼öÁ¤ÇØ¾ß ÇÔ.*/
-        if (FishArrivalTime.getArrivalTime() != 0.0f)
-        {
-            hookPos = breathPos(Mathf.Clamp(timeController.getProgressedTime() - FishArrivalTime.getArrivalTime(), 0f, timeController.getProgressedTime()));
-            Debug.Log("breathPos : "+hookPos);
-            //hookPos = (hookPos - (screenMax + screenMin) / 2) / (screenMax - screenMin) * (3.75f + 2.3f) + (3.75f - 2.3f) / 2.0f * ScalingOnGaming.yScaler;            
-            //ScreenMin~ScreenMax -> 0~1
-            hookPos = (hookPos - screenMin) / (screenMax - screenMin);
-            Debug.Log("hookPos : " + hookPos);
-        }
-        else {
-            hookPos = 0; 
-        }
-        //Debug.Log("¹Ù´Ã : "+hookyPos);  
-        GameObject.Find("³¬½Ë¹Ù´Ã").GetComponent<HookController>().setPosition(hookPos);
 
+        if (Characteristic.isValueNull)
+        {
+            if (FishArrivalTime.getArrivalTime() != 0.0f)
+            {
+                hookPos = breathPos(Mathf.Clamp(timeController.getProgressedTime() - FishArrivalTime.getArrivalTime(), 0f, timeController.getProgressedTime()));
+                Debug.Log("breathPos : "+hookPos);
+                //hookPos = (hookPos - (screenMax + screenMin) / 2) / (screenMax - screenMin) * (3.75f + 2.3f) + (3.75f - 2.3f) / 2.0f * ScalingOnGaming.yScaler;            
+                //ScreenMin~ScreenMax -> 0~1
+                hookPos = (hookPos - screenMin) / (screenMax - screenMin);
+                Debug.Log("hookPos : " + hookPos);
+            }
+            else {
+                hookPos = 0; 
+            }
+            //Debug.Log("¹Ù´Ã : "+hookyPos);  
+        }
+        else
+        {
+            hookPos = Characteristic.value / 100f;
+        }
+        GameObject.Find("³¬½Ë¹Ù´Ã").GetComponent<HookController>().setPosition(hookPos);
 
     }
 

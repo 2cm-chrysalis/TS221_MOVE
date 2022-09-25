@@ -9,8 +9,6 @@ using TMPro;
 
 public class AndroidBLEPluginStart : MonoBehaviour
 {
-    [Tooltip("벨트 연결 버튼")]
-    public Button ScanBtn;
 
     /// <summary>
     /// static 변수, 연결됐는지 여부.
@@ -31,13 +29,13 @@ public class AndroidBLEPluginStart : MonoBehaviour
     public string targetDevice;
     [Tooltip("연결된 장치의 주소")]
     public string connectedDevice;
-    
+
     private float updateTime = 0.0f;
     private float scanTime = 0.0f;
 
-    private bool isConnecting = false;
+    public static bool isConnecting = false;
 
-    private static bool isScanning = false;
+    public static bool isScanning = false;
 
 
     /// <summary>
@@ -77,15 +75,41 @@ public class AndroidBLEPluginStart : MonoBehaviour
         catch { Debug.LogError("Not yet inited."); }
     }
 
+    public void startScan()
+    {        
 
-#if UNITY_ANDROID //&& !UNITY_EDITOR
+        Debug.LogError("permission checking.");
+        foreach (string permission in new string[] { Permission.FineLocation, Permission.CoarseLocation, "android.permission.BLUETOOTH_SCAN", "android.permission.BLUETOOTH_CONNECT" })
+        {
+            if (!Permission.HasUserAuthorizedPermission(permission))
+            {
+                Debug.LogError("Not yet permitted : " + permission);
+                Debug.LogError("permitted : " + permission);
+                Permission.RequestUserPermission(permission);
+            }
+            else
+            {
+                Debug.LogError("permitted : " + permission);
+            }
+        }
+
+
+        _bleControlObj.Call<String>("init");
+        _bleControlObj.Call("disconnectGattServer");
+        _bleControlObj.Call("startScan");
+        
+        CallByAndroid("BLEPluginSample.scannedNum : " + scannedDevices.Count.ToString());
+        scannedDevices.Clear();
+
+        isScanning = true;
+    }
+
+#if UNITY_ANDROID && !UNITY_EDITOR
     // Start is called before the first frame update
     void Start()
     {
 
         bleInit();
-
-        ScanBtn.onClick.AddListener(startScan);
 
         isScanning = false;
     }
@@ -119,8 +143,6 @@ public class AndroidBLEPluginStart : MonoBehaviour
 
         if (isScanning || isConnecting)
         {
-            ScanBtn.enabled = false;
-            ScanBtn.GetComponentInChildren<TextMeshProUGUI>().text="연결 중....";
             scanTime += Time.deltaTime;
             if (scanTime > scanTimeLimit) 
             {
@@ -130,8 +152,6 @@ public class AndroidBLEPluginStart : MonoBehaviour
         }
         else if (!isConnected)
         {
-            ScanBtn.enabled = true;
-            ScanBtn.GetComponentInChildren<TextMeshProUGUI>().text = "벨트 연결";
             scanTime = 0.0f;            
             if (scannedDevices.Count>0){
                 if (!isConnecting)
@@ -145,9 +165,7 @@ public class AndroidBLEPluginStart : MonoBehaviour
             }
         }
         else
-        {
-            ScanBtn.enabled = false;
-            ScanBtn.GetComponentInChildren<TextMeshProUGUI>().text = "연결 성공";
+        {            
             scanTime = 0.0f;
         }
 
@@ -165,38 +183,12 @@ public class AndroidBLEPluginStart : MonoBehaviour
     }
     */
 
+    
+
+
     /// <summary>
     /// 스캔 종료. ScannedDevices 초기화 및 스캔 재시작.
     /// </summary>
-    private void startScan()
-    {        
-
-        Debug.LogError("permission checking.");
-        foreach (string permission in new string[] { Permission.FineLocation, Permission.CoarseLocation, "android.permission.BLUETOOTH_SCAN", "android.permission.BLUETOOTH_CONNECT" })
-        {
-            if (!Permission.HasUserAuthorizedPermission(permission))
-            {
-                Debug.LogError("Not yet permitted : " + permission);
-                Debug.LogError("permitted : " + permission);
-                Permission.RequestUserPermission(permission);
-            }
-            else
-            {
-                Debug.LogError("permitted : " + permission);
-            }
-        }
-
-
-        _bleControlObj.Call<String>("init");
-        _bleControlObj.Call("disconnectGattServer");
-        _bleControlObj.Call("startScan");
-        
-        CallByAndroid("BLEPluginSample.scannedNum : " + scannedDevices.Count.ToString());
-        scannedDevices.Clear();
-
-        isScanning = true;
-    }
-
     private void stopScan()
     {
         isScanning = false;
@@ -294,9 +286,6 @@ public class AndroidBLEPluginStart : MonoBehaviour
 
     private void checkConnecting()
     {
-        if (!isConnected)
-        {
-            isConnecting = false;
-        }
+            isConnecting = false;      
     }
 }

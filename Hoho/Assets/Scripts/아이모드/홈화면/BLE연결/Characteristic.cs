@@ -9,13 +9,22 @@ using Android.Data;
 public class Characteristic : MonoBehaviour
 {
 
-    public static int beltValue=0;
-
-    public TextMeshProUGUI UUID;
-    public TextMeshProUGUI Value;
-
+    /// <summary>
+    /// updateTimeLimit
+    /// </summary>
     public float updateTimeLimit = 0.1f;
+    /// <summary>
+    /// isValueNull이 false인지 확인할 것. value
+    /// </summary>
     public static int value=0;
+    /// <summary>
+    /// isValueNull이 false인지 확인할 것. 실제로 연결된 characteristic uuid
+    /// </summary>
+    public static string realUuid = "";
+    /// <summary>
+    /// isValueNull이 true면 값을 못 받고 있다는 뜻.
+    /// </summary>
+    public static bool isValueNull = true;
 
     private float updateTime = 0.0f;
     private string serviceUuid= "180c";
@@ -26,8 +35,7 @@ public class Characteristic : MonoBehaviour
     public void setUuid(string DeviceAddress, string ServiceUuid, string Uuid)
     {
         serviceUuid = ServiceUuid;
-        uuid = Uuid;
-        UUID.text = "UUID : " + uuid;
+        uuid = Uuid;        
     }
 
     private void Start()
@@ -35,6 +43,7 @@ public class Characteristic : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+#if UNITY_ANDROID && !UNITY_EDITOR
     private void Update()
     {
         if (!AndroidBLEPluginStart.isConnected) { return; }
@@ -42,6 +51,8 @@ public class Characteristic : MonoBehaviour
         updateTime += Time.deltaTime;
 
         if(serviceUuid==null || uuid == null) { return; }
+
+        AndroidBLEPluginStart.isConnected = AndroidBLEPluginStart._bleControlObj.Call<bool>("isConnected");
 
         if (updateTime > updateTimeLimit)
         {
@@ -76,25 +87,21 @@ public class Characteristic : MonoBehaviour
                 if (!characteristic.hasData)
                 {
                     Debug.Log("service : "+characteristic.serviceUuid+", character : "+characteristic.characteristicUuid);
-                    Value.text = "Value : No value";
+                    isValueNull = true;
+                    realUuid = "";
                     AndroidBLEPluginStart._bleControlObj.Call<bool>("setNotification", characteristic.serviceUuid, characteristic.characteristicUuid, true);
                     return;
                 }
-
-                updateValue(uuid, characteristic.intData);
-                UUID.text = "UUID : " + characteristic.characteristicUuid;
+                
+                Debug.Log(characteristic.characteristicUuid+ ":\nthe value : " + value.ToString());
+                isValueNull = false;
+                value = characteristic.intData;
+                realUuid = characteristic.characteristicUuid;
+                AndroidBLEPluginStart.isConnecting = false;
             }
             Debug.LogError("characteristic update Done.");
             updateTime = 0f;
         }
     }
-
-
-    private void updateValue(string charId, int intData)
-    {
-        Debug.Log(charId+":\nthe value : " + value.ToString());
-        Value.text = "int Value : " + intData.ToString();
-        beltValue = intData;
-    }
-
+#endif
 }

@@ -774,6 +774,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 329225133}
   m_CullTransparentMesh: 1
+--- !u!1 &457317460
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 457317462}
+  - component: {fileID: 457317461}
+  - component: {fileID: 457317463}
+  m_Layer: 0
+  m_Name: BeltSensorValueObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &457317461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457317460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 348a0bf3ae8175f4cbe091eba939e80e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updateTimeLimit: 0.1
+--- !u!4 &457317462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457317460}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 354.6694, y: 1006.1906, z: -4.4275923}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &457317463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457317460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba7d137bff498bc45b0977c4e72bb8ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updateTimeLimit: 0.5
+  scanTimeLimit: 5
+  targetDevice: 
+  connectedDevice: 
 --- !u!1 &457760155
 GameObject:
   m_ObjectHideFlags: 0
@@ -1283,7 +1345,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 657397831}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 457317463}
+        m_TargetAssemblyTypeName: AndroidBLEPluginStart, Assembly-CSharp
+        m_MethodName: startScan
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &657397831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1360,7 +1434,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 207.51201, y: 8.329987}
+  m_AnchoredPosition: {x: 207.51202, y: 8.329956}
   m_SizeDelta: {x: -459.119, y: -39.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &678660225
@@ -3439,8 +3513,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1953244346}
   - component: {fileID: 1953244345}
-  - component: {fileID: 1953244344}
   - component: {fileID: 1953244347}
+  - component: {fileID: 1953244348}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3448,21 +3522,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1953244344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1953244343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 348a0bf3ae8175f4cbe091eba939e80e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UUID: {fileID: 2053666954}
-  Value: {fileID: 714125342}
-  updateTimeLimit: 0.1
 --- !u!114 &1953244345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3475,7 +3534,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7d137bff498bc45b0977c4e72bb8ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScanBtn: {fileID: 657397830}
   updateTimeLimit: 0.5
   scanTimeLimit: 5
   targetDevice: 
@@ -3507,6 +3565,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ccdc0d23a4a9784f89bb7a7707c3b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1953244348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953244343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5db5099df9c0c44d813271887f616b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScanBtn: {fileID: 657397830}
+  UUID: {fileID: 2053666954}
+  Value: {fileID: 714125342}
 --- !u!1 &1979270492
 GameObject:
   m_ObjectHideFlags: 0
