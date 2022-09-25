@@ -67,7 +67,7 @@ public class TimeController : MonoBehaviour
             min = second = 0;
         }
 
-        timeText.text = (min.ToString().Length == 2) ? min.ToString() + " " + second.ToString() : "0"+min.ToString() + " " + second.ToString();
+        timeText.text = (min.ToString().Length == 2) ? min.ToString() + "  " + second.ToString() : "0"+min.ToString() + "  " + second.ToString();
     }
 
     private void updateBar()

@@ -346,7 +346,7 @@ MonoBehaviour:
   m_text: "\uC900\uBE44\uD574\uC8FC\uC138\uC694"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 571c21584fa09b440b0f11a792ff7886, type: 2}
-  m_sharedMaterial: {fileID: -8577799107355028835, guid: 571c21584fa09b440b0f11a792ff7886, type: 2}
+  m_sharedMaterial: {fileID: 1599704419615822856, guid: 571c21584fa09b440b0f11a792ff7886, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -481,7 +481,7 @@ MonoBehaviour:
   m_text: "\uBA48\uCDA4"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 571c21584fa09b440b0f11a792ff7886, type: 2}
-  m_sharedMaterial: {fileID: -8577799107355028835, guid: 571c21584fa09b440b0f11a792ff7886, type: 2}
+  m_sharedMaterial: {fileID: 1599704419615822856, guid: 571c21584fa09b440b0f11a792ff7886, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -614,10 +614,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 03 10
+  m_text: 03  10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 571c21584fa09b440b0f11a792ff7886, type: 2}
-  m_sharedMaterial: {fileID: -8577799107355028835, guid: 571c21584fa09b440b0f11a792ff7886, type: 2}
+  m_sharedMaterial: {fileID: 1599704419615822856, guid: 571c21584fa09b440b0f11a792ff7886, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1309,7 +1309,7 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 571c21584fa09b440b0f11a792ff7886, type: 2}
-  m_sharedMaterial: {fileID: -8577799107355028835, guid: 571c21584fa09b440b0f11a792ff7886, type: 2}
+  m_sharedMaterial: {fileID: 1599704419615822856, guid: 571c21584fa09b440b0f11a792ff7886, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1611,7 +1611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeText: {fileID: 261321885}
   timeBar: {fileID: 644261386}
-  fullTime: 30
+  fullTime: 80
   progressedTime: 0
 --- !u!1 &790254504
 GameObject:
@@ -1723,6 +1723,8 @@ MonoBehaviour:
   - wooper looper
   - Yellow Cichlid
   respawnPeriod: 0.7
+  yScreenHalfSize: 0
+  xScreenHalfSize: 0
 --- !u!114 &790254511
 MonoBehaviour:
   m_ObjectHideFlags: 0
