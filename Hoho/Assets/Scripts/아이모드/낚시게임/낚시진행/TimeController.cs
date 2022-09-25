@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TimeController : MonoBehaviour
 {
@@ -51,6 +52,11 @@ public class TimeController : MonoBehaviour
             progressedTime += Time.deltaTime;
             updateTime();
             updateBar();
+        }
+
+        if (GameStart.isStarted && getRemainingTime() <= 0f)
+        {
+            SceneLoader.LoadScene("아이모드홈화면");
         }
     }
 
