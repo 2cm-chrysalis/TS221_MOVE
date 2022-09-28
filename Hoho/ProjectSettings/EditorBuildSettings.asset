@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/LoginScene.unity
     guid: 7edbdf7b414d3db488f7b8554a22fa39
   - enabled: 1
-    path: "Assets/Scenes/\uC2DC\uC791\uD654\uBA74.unity"
+    path: "Assets/Scenes/\uAD6C\uBC84\uC804\uC2DC\uC791\uD654\uBA74.unity"
     guid: f930a3713b0c9314cb06f0213f230acf
   - enabled: 1
     path: "Assets/Scenes/\uC544\uC774\uBAA8\uB4DC/\uC544\uC774\uBAA8\uB4DC\uD3EC\uC778\uD2B8\uC0F5.unity"
@@ -20,9 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/\uC544\uC774\uBAA8\uB4DC/\uB09A\uC2DC \uAC8C\uC784/\uB09A\uC2DC\uC2DC\uC791\uD654\uBA74.unity"
     guid: 074bd1b46b0c598439f014c616963a4b
-  - enabled: 1
-    path: "Assets/Scenes/\uC544\uC774\uBAA8\uB4DC/\uB09A\uC2DC \uAC8C\uC784/\uB808\uBCA8\uC120\uD0DD.unity"
-    guid: 4d6f6816493acd44e8b86ed4e6c09c5f
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: "Assets/Scenes/\uC544\uC774\uBAA8\uB4DC/\uB09A\uC2DC \uAC8C\uC784/\uB09A\uC2DC\uC9C4\uD589.unity"
     guid: d52a4de443a8afd41bbff21446c05daa
