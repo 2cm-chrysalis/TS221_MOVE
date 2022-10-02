@@ -19,10 +19,6 @@ public class ProgressController : MonoBehaviour
     /// 원 안에 있는 텍스트. 가령, "놀이공원".  
     /// </summary>
     public static string rewardTitle;
-    /// <summary>
-    /// 원 안에 있는 레벨  
-    /// </summary>
-    public static int currentLevel;
 
     /// <summary>
     /// 원 안에 있는 포인트 string. 가령 "<U>1</U> <U>2</U>"  

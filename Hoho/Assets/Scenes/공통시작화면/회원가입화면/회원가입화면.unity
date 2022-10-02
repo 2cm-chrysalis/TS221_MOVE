@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 51097673}
+  - component: {fileID: 51097674}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -154,6 +155,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &51097674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51097672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ccdc0d23a4a9784f89bb7a7707c3b1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &200871568
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,11 +856,11 @@ RectTransform:
   m_Father: {fileID: 2117656351}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 341.94714, y: -843.6295}
-  m_SizeDelta: {x: 540.3697, y: 183.1959}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 540.3696, y: 183.19592}
+  m_Pivot: {x: 1, y: 0}
 --- !u!114 &456202539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -891,7 +904,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 456202540}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 51097674}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: "\uBAA8\uB4DC\uC120\uD0DD\uD654\uBA74"
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &456202540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1591,11 +1616,11 @@ RectTransform:
   m_Father: {fileID: 2117656351}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -188.95703, y: -843.6295}
-  m_SizeDelta: {x: 540.3694, y: 183.1945}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 540.3694, y: 183.19452}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &831228640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1639,7 +1664,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 831228641}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 51097674}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: "\uC2DC\uC791\uD654\uBA74"
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &831228641
 MonoBehaviour:
   m_ObjectHideFlags: 0

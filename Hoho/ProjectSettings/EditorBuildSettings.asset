@@ -6,20 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: "Assets/Scenes/\uACF5\uD1B5\uC2DC\uC791\uD654\uBA74/\uC2DC\uC791\uD654\uBA74/\uC2DC\uC791\uD654\uBA74.unity"
+    guid: 106b7c52e9e685f4d9dda8d78016e088
+  - enabled: 1
     path: "Assets/Scenes/\uC544\uC774\uBAA8\uB4DC/\uC544\uC774\uBAA8\uB4DC\uD648\uD654\uBA74.unity"
     guid: c1a44cdb3f5c7f54294ad467af4cfe85
   - enabled: 1
     path: Assets/Scenes/LoginScene.unity
     guid: 7edbdf7b414d3db488f7b8554a22fa39
   - enabled: 1
-    path: "Assets/Scenes/\uAD6C\uBC84\uC804\uC2DC\uC791\uD654\uBA74.unity"
+    path: "Assets/Scenes/\uBAA8\uB4DC\uC120\uD0DD\uD654\uBA74.unity"
     guid: f930a3713b0c9314cb06f0213f230acf
   - enabled: 1
     path: "Assets/Scenes/\uC544\uC774\uBAA8\uB4DC/\uC544\uC774\uBAA8\uB4DC\uD3EC\uC778\uD2B8\uC0F5.unity"
     guid: ad2017acbc7d59d43a2dd286978030c3
-  - enabled: 1
-    path: "Assets/Scenes/\uACF5\uD1B5\uC2DC\uC791\uD654\uBA74/\uC2DC\uC791\uD654\uBA74/\uC2DC\uC791\uD654\uBA74.unity"
-    guid: 106b7c52e9e685f4d9dda8d78016e088
   - enabled: 1
     path: "Assets/Scenes/\uACF5\uD1B5\uC2DC\uC791\uD654\uBA74/\uB85C\uADF8\uC778\uD654\uBA74/\uB85C\uADF8\uC778\uD654\uBA74.unity"
     guid: 41b42c33f26dd334fbdfd8d98fd899ac
@@ -29,9 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/\uC544\uC774\uBAA8\uB4DC/\uB09A\uC2DC \uAC8C\uC784/\uB09A\uC2DC\uC2DC\uC791\uD654\uBA74.unity"
     guid: 074bd1b46b0c598439f014c616963a4b
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: "Assets/Scenes/\uC544\uC774\uBAA8\uB4DC/\uB09A\uC2DC \uAC8C\uC784/\uB808\uBCA8\uC120\uD0DD
       1.unity"

@@ -23,7 +23,16 @@ public class SensorTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (AndroidBLEPluginStart.isScanning || AndroidBLEPluginStart.isConnecting)
+
+        if (AndroidBLEPluginStart.isConnected)
+        {
+            ScanBtn.enabled = false;
+            ScanBtn.GetComponentInChildren<TextMeshProUGUI>().text = "연결 성공";
+
+            Value.text = "Value : " + (Characteristic.isValueNull ? "No Value" : Characteristic.value);
+            UUID.text = "UUID : " + Characteristic.realUuid;
+        }
+        else if (AndroidBLEPluginStart.isScanning || AndroidBLEPluginStart.isConnecting)
         {
             ScanBtn.enabled = false;
             ScanBtn.GetComponentInChildren<TextMeshProUGUI>().text = "연결 중....";
@@ -32,14 +41,6 @@ public class SensorTracker : MonoBehaviour
         {
             ScanBtn.enabled = true;
             ScanBtn.GetComponentInChildren<TextMeshProUGUI>().text = "벨트 연결";
-        }
-        else
-        {
-            ScanBtn.enabled = false;
-            ScanBtn.GetComponentInChildren<TextMeshProUGUI>().text = "연결 성공";
-
-            Value.text = "Value : " + (Characteristic.isValueNull ? "No Value" : Characteristic.value);
-            UUID.text = "UUID : " + Characteristic.realUuid;
         }
     }
 }

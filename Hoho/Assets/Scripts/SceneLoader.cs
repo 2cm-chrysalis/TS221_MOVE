@@ -27,6 +27,14 @@ public class SceneLoader : MonoBehaviour
             Screen.autorotateToLandscapeLeft = false;
             Screen.autorotateToLandscapeRight = false;
         }
+        else
+        {
+            Screen.orientation = ScreenOrientation.LandscapeLeft;
+            Screen.autorotateToPortrait = false;
+            Screen.autorotateToPortraitUpsideDown = false;
+            Screen.autorotateToLandscapeLeft = true;
+            Screen.autorotateToLandscapeRight = true;
+        }
     }
 
     // Update is called once per frame

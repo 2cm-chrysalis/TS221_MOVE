@@ -14,7 +14,7 @@ public class PointCircleController : MonoBehaviour
         TextMeshProUGUI pointText = GameObject.Find("현재포인트Text").GetComponent<TextMeshProUGUI>();
 
         rewardTitle.text = ProgressController.rewardTitle;
-        currentLevel.text = ProgressController.currentLevel.ToString();
+        currentLevel.text = ProgressController.level.ToString();
         pointText.text = ProgressController.pointString;
 
         GetComponent<Slider>().value = ProgressController.progressRatio;

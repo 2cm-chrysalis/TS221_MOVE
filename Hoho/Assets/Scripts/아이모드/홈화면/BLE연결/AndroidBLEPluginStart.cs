@@ -104,7 +104,7 @@ public class AndroidBLEPluginStart : MonoBehaviour
         isScanning = true;
     }
 
-#if UNITY_ANDROID && !UNITY_EDITOR
+#if UNITY_ANDROID && UNITY_EDITOR
     // Start is called before the first frame update
     void Start()
     {
@@ -156,11 +156,29 @@ public class AndroidBLEPluginStart : MonoBehaviour
             if (scannedDevices.Count>0){
                 if (!isConnecting)
                 {
+                    bool targetExists = false;
+                    foreach(BleScannedDevice device in scannedDevices)
+                    {
+                        if (device.address == targetDevice)
+                        {
+                            Debug.LogError("device name : " + device.name);
+                            CallByAndroid("connecting to device name : " + device.name);
+                            AndroidBLEPluginStart._bleControlObj.Call<string>("connectExternal", device.address);
+                            isConnecting = true;
+                            Invoke("checkConnecting", 15f);
+                            targetExists = true;
+                        }
+                    }
+
+                    if (!targetExists)
+                    {
                     //스캔은 됐으나 연결이 안 된 경우 자동으로 연결 시도. 5초 후에 다시 시도.
                     Debug.LogError("device name : "+scannedDevices[0].name);
+                    CallByAndroid("connecting to device name : " + scannedDevices[0].name);
                     AndroidBLEPluginStart._bleControlObj.Call<string>("connectExternal", scannedDevices[0].address);
                     isConnecting = true;
                     Invoke("checkConnecting", 15f);
+                    }
                 }
             }
         }
