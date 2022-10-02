@@ -10,15 +10,44 @@ public class ProgressController : MonoBehaviour
     /// <summary>
     /// 전체에서 쓰이는 point
     /// </summary>
-    public static int point;
+    public static int point { 
+        get { 
+            return (int) ChildDataController.getValues()["point"]; 
+        }
+        set
+        {
+            ChildDataController.setPoint(value);
+        }    
+    }
     /// <summary>
     /// 현재 진행 보상 단계. PointShop에서 검은색 점의 개수.
     /// </summary>
-    public static int level;
+    public static int level
+    {
+        get
+        {
+            return (int)ChildDataController.getValues()["level"];
+        }
+        set
+        {
+            ChildDataController.setCanSend(true);
+            ChildDataController.setLevel(value);
+        }
+    }
     /// <summary>
     /// 원 안에 있는 텍스트. 가령, "놀이공원".  
     /// </summary>
-    public static string rewardTitle;
+    public static string rewardTitle
+    {
+        get
+        {
+            return (string) ChildDataController.getValues()["rewardTitle"];
+        }
+        set
+        {
+            ChildDataController.setRewardTitle(value);
+        }
+    }
 
     /// <summary>
     /// 원 안에 있는 포인트 string. 가령 "<U>1</U> <U>2</U>"  
@@ -28,7 +57,17 @@ public class ProgressController : MonoBehaviour
     /// <summary>
     /// 현재 점수/목표 점수
     /// </summary>
-    public static float progressRatio;
+    public static float progressRatio
+    {
+        get
+        {
+            return (float) ChildDataController.getValues()["progressRatio"];
+        }
+        set
+        {
+            ChildDataController.setProgressRatio(value);
+        }
+    }
 
     public int pointTest;
     public int levelTest;
@@ -57,7 +96,7 @@ public class ProgressController : MonoBehaviour
     public void addPoint(int point)
     {
         point += parsePoint(currentPoint);
-        ProgressController.point = point;
+        ChildDataController.setPoint(ProgressController.point = point);
         currentPoint.text = "현재  "+point;        
         updateProgress();
     }

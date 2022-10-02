@@ -15,7 +15,7 @@ public class ChildDataController : MonoBehaviour
 {
 
 
-    static FirebaseFirestore db= FirebaseFirestore.DefaultInstance;
+    static FirebaseFirestore db;
 
     static bool canSend = false;
 
@@ -56,7 +56,7 @@ public class ChildDataController : MonoBehaviour
     public static Dictionary<Timestamp, float> BreatheResult = new Dictionary<Timestamp, float>();
 
     /// <summary>
-    /// point, level, rewardTitle, goalPoint, progressRatio, childID를 담은 Dictionary 반환.
+    /// canSend(bool), point (int), level(int), rewardTitle(string), goalPoint(int), progressRatio(float), childID(string)를 담은 Dictionary 반환.
     /// </summary>
     /// <returns></returns>
     public static Dictionary<string, object> getValues()
@@ -78,7 +78,7 @@ public class ChildDataController : MonoBehaviour
     /// true로 설정해야 보낼 수 있음. 
     /// </summary>
     /// <param name="canSend"></param>
-    public static void setPrepared(bool canSend)
+    public static void setCanSend(bool canSend)
     {
        ChildDataController.canSend=canSend;
     }
@@ -109,9 +109,9 @@ public class ChildDataController : MonoBehaviour
         level = lv;
     }
 
-    public static void setRewardTitle(int lv)
+    public static void setRewardTitle(string title)
     {
-        level = lv;
+        rewardTitle = title;
     }
 
     /// <summary>

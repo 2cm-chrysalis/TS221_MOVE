@@ -104,7 +104,7 @@ public class AndroidBLEPluginStart : MonoBehaviour
         isScanning = true;
     }
 
-#if UNITY_ANDROID && UNITY_EDITOR
+#if UNITY_ANDROID && !UNITY_EDITOR
     // Start is called before the first frame update
     void Start()
     {
