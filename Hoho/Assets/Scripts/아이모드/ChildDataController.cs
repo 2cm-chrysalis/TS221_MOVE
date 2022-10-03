@@ -239,6 +239,12 @@ public class ChildDataController : MonoBehaviour
         });
     }
 
+    static public void receiveTimeCustom()
+    {
+        DocumentReference docRef = db.Collection("ParentUsers").Document("001");
+        return;
+    }
+
     public void UpdateData()
     {
         DocumentReference docRef = db.Collection("users").Document("aturing");
@@ -286,6 +292,6 @@ public class ChildDataController : MonoBehaviour
         {
             db = FirebaseFirestore.DefaultInstance;
         }
-        DontDestroyOnLoad(gameObject);        
+        DontDestroyOnLoad(gameObject);  
     }
 }
