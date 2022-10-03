@@ -12,7 +12,7 @@ public class Characteristic : MonoBehaviour
     /// <summary>
     /// updateTimeLimit
     /// </summary>
-    public float updateTimeLimit = 0.1f;
+    public float updateTimeLimit = 0f;
     /// <summary>
     /// isValueNull이 false인지 확인할 것. value
     /// </summary>

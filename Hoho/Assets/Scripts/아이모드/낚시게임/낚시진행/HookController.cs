@@ -25,8 +25,8 @@ public class HookController : MonoBehaviour
         y = ((chainYmax-chainYmin) * y + chainYmin) * ScalingOnGaming.yScaler;
         
         this.transform.parent.transform.localPosition = new Vector2(this.transform.parent.localPosition.x, y);
-        Debug.Log("사슬의 실제 pos :" + transform.parent.localPosition);
-        Debug.Log("사슬의 y : "+y);
+        //Debug.Log("사슬의 실제 pos :" + transform.parent.localPosition);
+        //Debug.Log("사슬의 y : "+y);
     }
 
     // Start is called before the first frame update

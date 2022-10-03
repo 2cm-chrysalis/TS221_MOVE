@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -33,6 +34,8 @@ public class GameStart : MonoBehaviour
     void Awake()
     {
         isStarted = false;
+        ChildDataController.BreatheResult.Clear();
+        ChildDataController.ExpectedBreatheResult.Clear();
     }
 
     // Update is called once per frame
@@ -70,6 +73,8 @@ public class GameStart : MonoBehaviour
             Invoke("disableText", 1.0f);
             isStarted = true;
             Pause.isPaused = false;
+            ChildDataController.fishGameResult.시작시간 =  DateTime.Now.ToString("yyyy-MM-dd-HH:mm:ss.ff");
+            ChildDataController.fishGameResult.시작날짜 = DateTime.Now.ToString("d");
         }
 
         return; 

@@ -74,6 +74,7 @@ public class ResultController : MonoBehaviour
     public static void setNowPoint(int point)
     {
         nowPoint = point;
+        ChildDataController.setPoint(point);
     }
 
     /// <summary>

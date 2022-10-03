@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using TMPro;
 
@@ -11,6 +12,10 @@ public class FishGenerator : MonoBehaviour
         get { return arrivalTime; }
         set { arrivalTime = value; }
     }
+
+    [Tooltip("±â·Ï ÁÖ±â.")]
+    public float recordingPeriod = 1.0f;
+    public float recordingTime = 0.0f;
 
     [Tooltip("GameManagerÀÇ TimeController ÄÄÆ÷³ÍÆ®")]
     public TimeController timeController;
@@ -44,7 +49,8 @@ public class FishGenerator : MonoBehaviour
     private float respawnTime = 0.0f;
 
     [SerializeField] private float yScreenHalfSize;
-    [SerializeField] private float xScreenHalfSize;
+    [SerializeField] private float xScreenHalfSize;    
+
 
     // Start is called before the first frame update
     void Start()
@@ -67,11 +73,12 @@ public class FishGenerator : MonoBehaviour
         if (GameStart.isStarted && !Pause.isPaused)
         {
             respawnTime += Time.deltaTime;
+            recordingTime += Time.deltaTime;
         }
 
         if (respawnTime > respawnPeriod)
         {
-            int idx = Random.Range(-10, 3);
+            int idx = UnityEngine.Random.Range(-10, 3);
             GameObject fish;
             switch (idx)
             {
@@ -98,29 +105,42 @@ public class FishGenerator : MonoBehaviour
 
         /*³ªÁß¿¡ ¼öÁ¤ÇØ¾ß ÇÔ.*/
 
+
+        float correctHookPos=0.0f;
+        if (FishArrivalTime.getArrivalTime() != 0.0f)
+        {
+            correctHookPos = breathPos(Mathf.Clamp(timeController.getProgressedTime() - FishArrivalTime.getArrivalTime(), 0f, timeController.getProgressedTime()));
+            //Debug.Log("breathPos : " + hookPos);
+            //hookPos = (hookPos - (screenMax + screenMin) / 2) / (screenMax - screenMin) * (3.75f + 2.3f) + (3.75f - 2.3f) / 2.0f * ScalingOnGaming.yScaler;            
+            //ScreenMin~ScreenMax -> 0~1
+            correctHookPos = (correctHookPos - screenMin) / (screenMax - screenMin);
+            //Debug.Log("hookPos : " + hookPos);
+        }
+        else
+        {
+            correctHookPos = 0;
+        }
+
         if (Characteristic.isValueNull)
         {
-            if (FishArrivalTime.getArrivalTime() != 0.0f)
-            {
-                hookPos = breathPos(Mathf.Clamp(timeController.getProgressedTime() - FishArrivalTime.getArrivalTime(), 0f, timeController.getProgressedTime()));
-                Debug.Log("breathPos : "+hookPos);
-                //hookPos = (hookPos - (screenMax + screenMin) / 2) / (screenMax - screenMin) * (3.75f + 2.3f) + (3.75f - 2.3f) / 2.0f * ScalingOnGaming.yScaler;            
-                //ScreenMin~ScreenMax -> 0~1
-                hookPos = (hookPos - screenMin) / (screenMax - screenMin);
-                Debug.Log("hookPos : " + hookPos);
-            }
-            else {
-                hookPos = 0; 
-            }
+             hookPos = correctHookPos;
             //Debug.Log("¹Ù´Ã : "+hookyPos);  
         }
         else
         {
-            //800->1, 730 ->0
+            //900->0, 100 ->1
 
-            hookPos = (Characteristic.value - 650) / 80.0f;
+            hookPos = 1f - (Characteristic.value - 100) / 800.0f;
         }
         GameObject.Find("³¬½Ë¹Ù´Ã").GetComponent<HookController>().setPosition(hookPos);
+
+        if (FishArrivalTime.getArrivalTime() != 0.0f && recordingTime>=recordingPeriod)
+        {
+            string nowTime = DateTime.Now.ToString("yyyy-mm-dd-HH:MM:ss.ff");
+            ChildDataController.BreatheResult.Add(nowTime, hookPos);
+            ChildDataController.ExpectedBreatheResult.Add(nowTime, correctHookPos);            
+            recordingTime = 0.0f;
+        }
 
     }
 

@@ -17,7 +17,7 @@ public class FishArrivalTime : MonoBehaviour
     public TimeController timeController;
     public FishGenerator fishGenerator;
 
-
+    private static int fishNum = 0;
 
     /// <summary>
     /// 물고기의 생성 후 도착 시간을 알려줌. 초기값은 0.0f. 한 번 설정되면 게임 중 안 바뀜.
@@ -29,11 +29,17 @@ public class FishArrivalTime : MonoBehaviour
     }
 
 
+    public static int getFishNum()
+    {
+        return fishNum;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         guideSquare = GameObject.Find("가이드라인사각형");
         arrivalTime = 0.0f;
+        fishNum = 0;
     }
 
     // Update is called once per frame
@@ -48,7 +54,7 @@ public class FishArrivalTime : MonoBehaviour
         Debug.Log(fish);
         if (fish.tag == "Fish" || fish.tag == "fish")
         {
-            Debug.Log(arrivalTime);
+            //Debug.Log(arrivalTime);
             FishMove fishMove = fish.GetComponent<FishMove>();
 
             if (arrivalTime == 0.0f)
@@ -61,8 +67,7 @@ public class FishArrivalTime : MonoBehaviour
             }
             fishMove.isArrived = true;
             guideSquare.transform.position = new Vector2(guideSquare.transform.position.x, fish.transform.position.y);
-            
-            
+            fishNum++;
         }
     }
 }

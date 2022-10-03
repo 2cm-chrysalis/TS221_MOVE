@@ -7,17 +7,53 @@ using TMPro;
 
 public class PointListController : MonoBehaviour
 {
+    public class pointContent
+    {
+        /// <summary>
+        /// icon 종류. 순서로 표시.  0~2
+        /// </summary>
+        public int icon=0;
+
+        /// <summary>
+        /// 보상 목록 내용.  날짜는 표기 안 해줘도 됨.
+        /// </summary>
+        public string content="";
+
+        /// <summary>
+        /// 얻은 포인트
+        /// </summary>
+        public int point=0;
+    }
+
+
     //목록에 사용할 아이콘들.
     public List<Sprite> spriteList;
 
     public ProgressController progressController;
-    
+
+    public static List<pointContent> pointContentList = new List<pointContent> { new pointContent(), new pointContent(), new pointContent(), new pointContent() };
+
     //목록1, 목록2, 목록3, 목록4
     private List<GameObject> pointList = new List<GameObject>();
     
 
     public void updateList(Sprite icon, string content, int point)
     {
+        if (pointContentList.Count>10)
+        {
+            //초기화.
+            pointContentList.RemoveRange(0, pointContentList.Count - 3);
+            Debug.Log("pointContentList num : "+pointContentList.Count);
+        }
+
+        pointContent cont = new pointContent();
+        cont.icon = 0;
+        cont.content = content;
+        cont.point = point;
+
+
+        pointContentList.Add(cont);
+        /*
         for (int i = pointList.Count - 2; i >=0; i--)
         {
             var currentObject = pointList[i];
@@ -31,6 +67,8 @@ public class PointListController : MonoBehaviour
         setIcon(pointList[0], icon);
         setContent(pointList[0], content);
         setPoint(pointList[0], point);
+        */
+        setList();
     }
 
     // Start is called before the first frame update
@@ -46,9 +84,10 @@ public class PointListController : MonoBehaviour
                 {
                     pointList.Add(childList[i].gameObject);
                 }
-                    
+            
             }
         }
+        setList();
     }
 
     // Update is called once per frame
@@ -56,6 +95,28 @@ public class PointListController : MonoBehaviour
     {
          
     }
+
+
+    /// <summary>
+    // pointContentList에 따라 확인. 끝에서 4개를 추출. 
+    /// </summary>
+    private void setList()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (i >= pointContentList.Count)
+            {
+
+            }
+
+            int index = pointContentList.Count - 1 - i;
+            pointContent cont = pointContentList[index];
+            setIcon(pointList[i], spriteList[cont.icon]);
+            setContent(pointList[i], cont.content);
+            setPoint(pointList[i], cont.point);
+        }
+    }
+
 
     /// <summary>
     /// 아이콘을 해당 sprite로 설정해줌.
@@ -92,7 +153,7 @@ public class PointListController : MonoBehaviour
     private void setPoint(GameObject target, int point)
     {
         int accumPoint=progressController.getCurrentPoint();
-        string content = "+"+point+"P\n"+"("+accumPoint+"P)";
+        string content = "+" + point; //+"\n"+"("+accumPoint+"P)";
         target.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = content;
     }
 

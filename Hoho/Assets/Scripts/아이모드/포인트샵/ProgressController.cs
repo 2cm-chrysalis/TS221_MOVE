@@ -148,6 +148,7 @@ public class ProgressController : MonoBehaviour
         ProgressController.pointString = pointText.text = pointToString(parsePoint(currentPoint));
         ProgressController.rewardTitle=rewardTitle.GetComponent<TextMeshProUGUI>().text = getContentfromRow(rows[level-1]);
         goalPoint.text = "완성  " + getGoalfromRow(rows[level-1]);
+        ChildDataController.setGoalPoint(getGoalfromRow(rows[level - 1]));
 
         Debug.Log(goalPoint.text);
 
@@ -298,6 +299,7 @@ public class ProgressController : MonoBehaviour
             ProgressController.rewardTitle = rewardTitle.GetComponent<TextMeshProUGUI>().text = getContentfromRow(rows[level-1]);
 
             goalPoint.text = "완성  " + getGoalfromRow(rows[level-1]);
+            ChildDataController.setGoalPoint(getGoalfromRow(rows[level - 1]));
             pointRatio.text = "0%";
             pointCircle.GetComponent<Slider>().value = 0f;
             ProgressController.point = 0;

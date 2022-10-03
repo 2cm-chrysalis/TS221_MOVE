@@ -13,6 +13,34 @@ using Firebase.Extensions;
 /// </summary>
 public class ChildDataController : MonoBehaviour
 {
+    [FirestoreData]
+    public class GameResult
+    {
+        [FirestoreProperty]
+        public string 시작날짜 { get; set; } = "";
+
+        [FirestoreProperty]
+        public string 시작시간 { get; set; } = "";
+
+        [FirestoreProperty]
+        public int 레벨 { get; set; } = 1;
+
+        [FirestoreProperty]
+        public int 별개수 { get; set; } = 0;
+
+        [FirestoreProperty]
+        public int 플레이시간 { get; set; } = 0;
+
+        [FirestoreProperty]
+        public int 훈련시간 { get; set; } = 0;
+
+        [FirestoreProperty]
+        public Dictionary<string, float> 호흡기록 { get; set; } = ChildDataController.BreatheResult;
+
+        [FirestoreProperty]
+        public Dictionary<string, float> 예상호흡기록 { get; set; } = ChildDataController.ExpectedBreatheResult;
+    };
+            
 
 
     static FirebaseFirestore db;
@@ -27,7 +55,7 @@ public class ChildDataController : MonoBehaviour
     /// <summary>
     /// 현재 보상을 얻기 위한 목표 점수.
     /// </summary>
-    static int goalPoint=1;
+    static int goalPoint=1000;
 
     /// <summary>
     /// 현재 진행 보상 단계. PointShop에서 검은색 점의 개수.
@@ -49,11 +77,21 @@ public class ChildDataController : MonoBehaviour
     /// </summary>
     static string childID = "001";
 
+    /// <summary>
+    ///        시작날짜 = "", 시작시간 = "", 레벨 = 0, 별개수 = starNum, 플레이시간 = 0, 호흡기록, 예상호흡기록
+    /// </summary>
+    public static GameResult fishGameResult = new GameResult();
+
 
     /// <summary>
     /// 호흡 결과는 여기에 기록해서 SendGameResult로 보낼 것. timestamp와 0~1 사이의 넣으면 됨. 
     /// </summary>
-    public static Dictionary<Timestamp, float> BreatheResult = new Dictionary<Timestamp, float>();
+    public static Dictionary<string, float> BreatheResult = new Dictionary<string, float> { { "0", 0 }, };
+
+    /// <summary>
+    /// correctHookPos는 여기에 기록해서 SendGameResult로 보낼 것. timestamp와 0~1 사이의 넣으면 됨. 
+    /// </summary>
+    public static Dictionary<string, float> ExpectedBreatheResult = new Dictionary<string, float> { { "0", 0 }, };
 
     /// <summary>
     /// canSend(bool), point (int), level(int), rewardTitle(string), goalPoint(int), progressRatio(float), childID(string)를 담은 Dictionary 반환.
@@ -162,10 +200,43 @@ public class ChildDataController : MonoBehaviour
         });
     }
 
-
-    public static void SendFishResult()
+    public static void SendGameResult()
     {
+        fishGameResult.호흡기록 = BreatheResult;
+        fishGameResult.예상호흡기록 = ExpectedBreatheResult;
 
+        Debug.Log( "Keys : "+fishGameResult.호흡기록.Keys.ToString());
+
+        if (!canSend)
+        {
+            Debug.Log("Not yet prepared.");
+        }
+
+        Debug.Log("Send point for GameResult");
+
+        string today = fishGameResult.시작날짜;       
+        Debug.Log(today);
+        Query todayQuery = db.Collection("ChildrenUsers").Document(childID).Collection("Point").Document("FishPoint").Collection("Results").WhereEqualTo("시작날짜", today);        
+
+        todayQuery.GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {     
+            
+            QuerySnapshot todayQuerySnapshot = task.Result;
+            string documentName = today + "_" + (todayQuerySnapshot.Count + 1);            
+
+            DocumentReference docRef = db.Collection("ChildrenUsers").Document(childID).Collection("Point").Document("FishPoint").Collection("Results").Document(documentName);
+
+            //Debug.Log(documentName+"\n시작날짜 : " + fishGameResult.시작날짜 + "\n" + "시작시간 : " + fishGameResult.시작시간 + "\n" + "레벨 : "+ fishGameResult.레벨 + "\n별개수 : " + fishGameResult.별개수 + "\n플레이시간 : " + fishGameResult.플레이시간+"\n호흡기록 : "+fishGameResult.호흡기록.Keys.Count);
+
+            docRef.SetAsync(fishGameResult).ContinueWithOnMainThread(task => {
+
+                if (task.IsCompleted)
+                {
+                    Debug.Log("Added data to the document "+documentName+" in the users collection.");
+                }
+                else { Debug.Log("Failed"); }
+            });
+        });
     }
 
     public void UpdateData()

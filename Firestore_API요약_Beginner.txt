@@ -125,3 +125,27 @@ OderBy, Where 필터를 여러 번 중첩 가능.
 StartAt( 값), StartAfter(값), EndAt(값), endBefore(값)을 설정해서 해당 필드의 값이 특정 값 이상 또는 이하가 되는 것만 가져올 수 있음. 
 
 예시 : Query query = citiesRef.OrderBy("Population").StartAt(1000000);
+
+
+
+
+
+
+
+
+
+
+
+
+타임스탬프 다루기
+
+파이어스토어의 Timestamp 구조. 
+Timestamp { _seconds: 1618381810, _nanoseconds: 792000000 }
+
+
+Timestamp Firebase::Firestore::Timestamp::GetCurrentTimestamp()  : 현재 시스템 타임 get
+
+date.formatDate((Timestamp 객체).toDate(), 'YYYY-MM-DD HH:mm:ss.fff tt');
+//2022-10-2 15:30:50.195 AM
+
+

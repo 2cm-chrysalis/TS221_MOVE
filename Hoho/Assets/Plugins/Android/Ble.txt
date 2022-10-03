@@ -3,7 +3,8 @@ public class BlePermissionRequest : FineLocation에 대한 권한 요청
 
 public class BleScannedDevice : 주소(aadress), 이름(name), 신호(rssi)
 
-public class Android.Data.BleDeviceDataEvents : readCharacteristicAct, writeCharacteristicAct, notifiedCharacteristicAct, unsubscribeAct
+public class Android.Data.BleDeviceDataEvents : read
+Act, writeCharacteristicAct, notifiedCharacteristicAct, unsubscribeAct
 
 pubilc class Android.Data.BleDiscoverEvents : connectedAct, discoveredServiceAct, discoveredCharacteristicAct, disconnectAct
 

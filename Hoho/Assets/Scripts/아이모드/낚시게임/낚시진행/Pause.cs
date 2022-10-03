@@ -25,7 +25,7 @@ public class Pause : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameStart.isStarted && heart3.activeSelf || (pauseBtn.GetComponentInChildren<TextMeshProUGUI>().text == "¿Á∞≥"))
+        if (GameStart.isStarted && heart3.activeSelf) // ||(pauseBtn.GetComponentInChildren<TextMeshProUGUI>().text == "¿Á∞≥")
         {
             pauseBtn.enabled = true;
         }
@@ -45,7 +45,7 @@ public class Pause : MonoBehaviour
             {
                 if (heart.activeSelf == true)
                 {
-                    pauseBtn.GetComponentInChildren<TextMeshProUGUI>().text="¿Á∞≥";
+                    //pauseBtn.GetComponentInChildren<TextMeshProUGUI>().text="¿Á∞≥";
                     heart.SetActive(false);
                     FishArrivalTime.guideSquare.SetActive(true);
                     return;
@@ -55,7 +55,7 @@ public class Pause : MonoBehaviour
         }
         else
         {
-            pauseBtn.GetComponentInChildren<TextMeshProUGUI>().text = "∏ÿ√„";
+            //pauseBtn.GetComponentInChildren<TextMeshProUGUI>().text = "∏ÿ√„";
             FishArrivalTime.guideSquare.SetActive(false);
             gameStart.startGame();        
         }

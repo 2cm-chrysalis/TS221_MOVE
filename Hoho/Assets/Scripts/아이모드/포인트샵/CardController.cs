@@ -41,7 +41,7 @@ public class CardController : MonoBehaviour
 
     private void getPoint()
     {
-        int p = System.Int32.Parse(point.text.Substring(0, point.text.Length - 1));
+        int p = System.Int32.Parse(point.text.Substring(0, point.text.Length));
         progressController.addPoint(p);
         pointListController.updateList(pointListController.spriteList[0], "칭찬포인트", p);
     }

@@ -26,7 +26,7 @@ public class AndroidBLEPluginStart : MonoBehaviour
     [Tooltip("스캔 지속 시간. 스캔은 배터리 소모를 많이 함.")]
     public float scanTimeLimit = 5.0f;
     [Tooltip("연결할 대상의 주소")]
-    public string targetDevice;
+    public string targetDevice="8d:cc:8c:70:eb:30";
     [Tooltip("연결된 장치의 주소")]
     public string connectedDevice;
 
@@ -173,7 +173,7 @@ public class AndroidBLEPluginStart : MonoBehaviour
                     if (!targetExists)
                     {
                     //스캔은 됐으나 연결이 안 된 경우 자동으로 연결 시도. 5초 후에 다시 시도.
-                    Debug.LogError("device name : "+scannedDevices[0].name);
+                    Debug.LogError("device name : "+scannedDevices[0].name+", device address : " + scannedDevices[0].address);
                     CallByAndroid("connecting to device name : " + scannedDevices[0].name);
                     AndroidBLEPluginStart._bleControlObj.Call<string>("connectExternal", scannedDevices[0].address);
                     isConnecting = true;
@@ -201,7 +201,7 @@ public class AndroidBLEPluginStart : MonoBehaviour
     }
     */
 
-    
+
 
 
     /// <summary>
