@@ -303,28 +303,28 @@ public class ChildDataController : MonoBehaviour
         RLquery.GetSnapshotAsync().ContinueWithOnMainThread(task =>
         {
             QuerySnapshot RLQuerySnapshot = task.Result;
-            Debug.Log(" : "+RLQuerySnapshot.Count);
+            //Debug.Log(" : "+RLQuerySnapshot.Count);
             foreach (DocumentSnapshot doc in RLQuerySnapshot.Documents)
             {
-                Debug.Log("123");
+                //Debug.Log("123");
                 Dictionary<string, object> RewardLists = doc.ToDictionary();
-                Debug.Log("123");
+                //Debug.Log("123");
 
 
                 foreach (KeyValuePair<string, object> pair in RewardLists)
                 {
-                    Debug.Log(String.Format("{0}: {1}", pair.Key, pair.Value));
-                    Debug.Log(pair.Key == "레벨");
-                    Debug.Log("디버깅 : "+RewardLists[pair.Key]);                 
+                    //Debug.Log(String.Format("{0}: {1}", pair.Key, pair.Value));
+                    //Debug.Log(pair.Key == "레벨");
+                    //Debug.Log("디버깅 : "+RewardLists[pair.Key]);                 
                 }
 
-                Debug.Log("레벨 : "+RewardLists["레벨"].ToString());
+                //Debug.Log("레벨 : "+RewardLists["레벨"].ToString());
 
                 int level = System.Int32.Parse(RewardLists["레벨"].ToString());
 
-                Debug.Log("level is " + level);
+                //Debug.Log("level is " + level);
                 //Debug.Log(level);
-                //int point = (int)RewardLists["포인트"];
+                int point = System.Int32.Parse(RewardLists["포인트"].ToString());
                 //Debug.Log("123");
                 //Debug.Log("level : "+level + ", point : " + point);
 
@@ -346,31 +346,26 @@ public class ChildDataController : MonoBehaviour
         Query CPquery = db.Collection("ParentUsers").Document(parentID).Collection("Point").WhereEqualTo("type", "card");
         CPquery.GetSnapshotAsync().ContinueWithOnMainThread(task =>
         {
+            //Debug.Log("receiving CompPoint");
             QuerySnapshot CPQuerySnapshot = task.Result;
-            Debug.Log(" : " + CPQuerySnapshot.Count);
+            Debug.Log("receiving CompPoint : " + CPQuerySnapshot.Count);
+            int idx = 1;
             foreach (DocumentSnapshot doc in CPQuerySnapshot.Documents)
             {
                 Dictionary<string, object> CompPoint = doc.ToDictionary();
 
-
                 foreach (KeyValuePair<string, object> pair in CompPoint)
                 {
-                    Debug.Log(String.Format("{0}: {1}", pair.Key, pair.Value));
-                    Debug.Log(pair.Key == "레벨");
+                    //Debug.Log(String.Format("{0}: {1}", pair.Key, pair.Value));
                     Debug.Log("디버깅 : " + CompPoint[pair.Key]);
                 }
 
-                Debug.Log("레벨 : " + CompPoint["레벨"].ToString());
-
-                int level = System.Int32.Parse(CompPoint["레벨"].ToString());
-
-                Debug.Log("level is " + level);
-                //Debug.Log(level);
-                //int point = (int)RewardLists["포인트"];
-                //Debug.Log("123");
+                int point = System.Int32.Parse(CompPoint["포인트"].ToString());
+                Debug.Log("포인트 파싱");
                 //Debug.Log("level : "+level + ", point : " + point);
 
-                ChildDataController.CPresult.Add("포인트_" + level.ToString(), point);
+                ChildDataController.CPresult.Add("포인트_" + idx, point);
+                idx++;
 
             }
             updateReward();

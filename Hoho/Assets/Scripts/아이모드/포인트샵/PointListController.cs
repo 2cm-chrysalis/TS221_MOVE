@@ -35,7 +35,15 @@ public class PointListController : MonoBehaviour
 
     //목록1, 목록2, 목록3, 목록4
     private List<GameObject> pointList = new List<GameObject>();
-    
+
+
+    /// <summary>
+    /// CP = Compensation Point, CPpointStack은 칭찬카드의 포인트를 쌓아두는 스택
+    /// </summary>
+    public Stack<String> CPpointStack = new Stack<String>();
+
+
+    public static List<TextMeshProUGUI> guideTexts = new List<TextMeshProUGUI>();
 
     public void updateList(Sprite icon, string content, int point)
     {
@@ -71,18 +79,47 @@ public class PointListController : MonoBehaviour
         setList();
     }
 
-    public List<TextMeshProUGUI> guideTexts = new List<TextMeshProUGUI>();
+    
 
-    private void setGuideText()
+    public void GetStackP()
     {
+        Debug.Log("GetStakP : "+ (ChildDataController.CPresult.Count));
+        
+        foreach(KeyValuePair<string, int> pair in ChildDataController.CPresult)
+        {
+            Debug.Log( "pair : "+(pair.Key, pair.Value));
+        }
+        
+        for (int i = 1; i < ChildDataController.CPresult.Count+1; i++)
+        {
+            try
+            {
+
+                Debug.Log("GetStackP iteration");
+                string msg = ChildDataController.CPresult["포인트_" + i].ToString();
+                //guideTexts[i - 1].text = msg;
+                Debug.Log(msg);
+                CPpointStack.Push(msg);
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e.Message);
+            }
+        }
+    }
+
+    public static Stack<String> GetStackC()
+    {
+        Stack<String> stack = new Stack<String>();
         for (int i = 1; i < guideTexts.Count + 1; i++)
         {
             string msg = ChildDataController.CPresult["포인트_" + i].ToString() + "P";
             guideTexts[i - 1].text = msg;
             Debug.Log(msg);
-
+            stack.Push(msg);
 
         }
+        return stack;
     }
 
 
@@ -106,6 +143,9 @@ public class PointListController : MonoBehaviour
             }
         }
         setList();
+
+        Debug.Log("start of point list controller");
+        ChildDataController.receiveCompPoint(GetStackP);
     }
 
     // Update is called once per frame

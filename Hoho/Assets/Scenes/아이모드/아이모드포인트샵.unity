@@ -2384,11 +2384,6 @@ MonoBehaviour:
   spriteList:
   - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   progressController: {fileID: 1076636634}
-  guideTexts:
-  - {fileID: 766988570}
-  - {fileID: 2024138028}
-  - {fileID: 81505689}
-  - {fileID: 1665253224}
 --- !u!1 &305890443
 GameObject:
   m_ObjectHideFlags: 0
@@ -2880,7 +2875,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1234
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4725,7 +4720,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -120.971466}
+  m_AnchoredPosition: {x: 0, y: -121.58084}
   m_SizeDelta: {x: 0, y: -667.81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &691453150
@@ -5031,7 +5026,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 258.09225}
+  m_AnchoredPosition: {x: 0, y: 257.9907}
   m_SizeDelta: {x: 0, y: -667.81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &724969709
@@ -7272,7 +7267,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 30.654053}
+  m_AnchoredPosition: {x: 0, y: 30.247772}
   m_SizeDelta: {x: 0, y: -667.81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1039446982
@@ -7881,7 +7876,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -45.158722}
+  m_AnchoredPosition: {x: 0, y: -45.666534}
   m_SizeDelta: {x: 0, y: -667.81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1083944898
@@ -11481,6 +11476,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1697665193}
+        m_TargetAssemblyTypeName: CardController, Assembly-CSharp
+        m_MethodName: updateCard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1795572457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12222,7 +12229,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 182.27951}
+  m_AnchoredPosition: {x: 0, y: 182.07639}
   m_SizeDelta: {x: 0, y: -667.81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1918709660
@@ -13724,7 +13731,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 106.46677}
+  m_AnchoredPosition: {x: 0, y: 106.16208}
   m_SizeDelta: {x: 0, y: -667.81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2118134920

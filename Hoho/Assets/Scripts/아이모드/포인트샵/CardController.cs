@@ -21,15 +21,20 @@ public class CardController : MonoBehaviour
     {
         title.text = _title;
         content.text = _content;
-        point.text = _point + "P";
+        point.text = _point.ToString();
+    }
+
+    public void updateCard()
+    {
+        int CPPoint = System.Int32.Parse(pointListController.CPpointStack.Pop());
+        setCardInfo("제목", "칭찬포인트", CPPoint);
+        Debug.Log("getPoint : " + CPPoint);
     }
 
     // Start is called before the first frame update
     void Start()
     {
         receive.onClick.AddListener(getPoint);
-        
-
     }
 
     // Update is called once per frame
@@ -39,9 +44,11 @@ public class CardController : MonoBehaviour
     }
 
 
+
+
     private void getPoint()
     {
-        int p = System.Int32.Parse(point.text.Substring(0, point.text.Length));
+        int p = System.Int32.Parse(point.text.Length>0? point.text : "0");
         progressController.addPoint(p);
         pointListController.updateList(pointListController.spriteList[0], "칭찬포인트", p);
     }
