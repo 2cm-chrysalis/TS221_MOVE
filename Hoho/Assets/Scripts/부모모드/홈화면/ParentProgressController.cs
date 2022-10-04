@@ -80,9 +80,8 @@ public class ParentProgressController : MonoBehaviour
         level = 1;
         totalLevel = 6;
         goalPoint_static = 4000;
-        totalPointContent = GameObject.Find("전체포인트").GetComponent<TextMeshProUGUI>().text = "<" + level + ">\n" + point + "P\n" + "놀이공원";
 
-        initProgress();
+        ParentDataController.ReceivePoint(initProgress);
     }
 
     // Update is called once per frame
@@ -98,6 +97,16 @@ public class ParentProgressController : MonoBehaviour
     /// </summary>
     private void initProgress()
     {
+        Debug.Log("point : "+point+", level : "+level);
+        point = (int) ParentDataController.getValues()["point"];
+        level = (int) ParentDataController.getValues()["level"];
+        //totalLevel
+        goalPoint_static = (int) ParentDataController.getValues()["goalPoint"];
+
+        totalPointContent = GameObject.Find("전체포인트").GetComponent<TextMeshProUGUI>().text = "<" + level + ">\n" + point + "P\n" + ParentDataController.getValues()["rewardTitle"];
+
+        progressRatio = (float)point / goalPoint_static;
+        Debug.Log("progressRatio : " + progressRatio);
         currentPoint.text = "현재  " + ParentProgressController.point;
         ParentProgressController.level = Math.Max(1, level);
 
@@ -111,6 +120,7 @@ public class ParentProgressController : MonoBehaviour
         
         //totalPointContent = totalPoint.GetComponent<TextMeshProUGUI>().text = "<" + level + ">\n" + parsePoint(currentPoint) + "P\n" + totPointContent;
         goalPointText.text = "완성  " + goalPoint_static;
+        Debug.Log("목표점수 : " + goalPoint_static);
 
         Debug.Log(goalPointText.text);
         updateProgress();        
@@ -135,7 +145,7 @@ public class ParentProgressController : MonoBehaviour
         for (int i=0; i<level; i++)
         {
             Instantiate(dotPrefab, progressLevel.transform);
-            dotPrefab.GetComponentInChildren<TextMeshProUGUI>().text = i.ToString();
+            dotPrefab.GetComponentInChildren<TextMeshProUGUI>().text = (i+1).ToString();
             dots.Add(dotPrefab);
         }
 

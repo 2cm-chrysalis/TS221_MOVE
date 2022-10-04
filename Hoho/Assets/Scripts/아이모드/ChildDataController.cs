@@ -35,6 +35,9 @@ public class ChildDataController : MonoBehaviour
         public int 훈련시간 { get; set; } = 0;
 
         [FirestoreProperty]
+        public int 완성률 { get; set; } = 0;
+
+        [FirestoreProperty]
         public Dictionary<string, float> 호흡기록 { get; set; } = ChildDataController.BreatheResult;
 
         [FirestoreProperty]
@@ -184,10 +187,10 @@ public class ChildDataController : MonoBehaviour
         DocumentReference docRef = db.Collection("ChildrenUsers").Document(childID).Collection("Point").Document("CurrentPoint");
         Dictionary<string, object> user = new Dictionary<string, object>
         {
-                { "현재 총 포인트", point},
-                { "현재 레벨", level },
-                { "보상 제목", rewardTitle },
-                { "목표 점수", goalPoint },
+                { "현재포인트", point},
+                { "레벨", level },
+                { "보상제목", rewardTitle },
+                { "목표점수", goalPoint },
         };
 
         docRef.SetAsync(user).ContinueWithOnMainThread(task => {

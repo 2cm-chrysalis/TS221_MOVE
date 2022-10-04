@@ -136,7 +136,7 @@ public class FishGenerator : MonoBehaviour
 
         if (FishArrivalTime.getArrivalTime() != 0.0f && recordingTime>=recordingPeriod)
         {
-            string nowTime = DateTime.Now.ToString("yyyy-mm-dd-HH:MM:ss.ff");
+            string nowTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.ff");
             ChildDataController.BreatheResult.Add(nowTime, hookPos);
             ChildDataController.ExpectedBreatheResult.Add(nowTime, correctHookPos);            
             recordingTime = 0.0f;

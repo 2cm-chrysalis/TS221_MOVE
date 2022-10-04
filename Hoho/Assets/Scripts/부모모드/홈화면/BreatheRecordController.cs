@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 using TMPro;
 
 public class BreatheRecordController : MonoBehaviour
@@ -29,8 +30,15 @@ public class BreatheRecordController : MonoBehaviour
     /// <param name="isAM"></param>
     
     //public void makeBar(int percent, int hour, int minute, bool isAM=false)
-    public void makeBar()    
+    public void makeBar(Dictionary<int, float> data1, Dictionary<int, float> data2)    
     {
+        DateTime time = DateTime.Parse(ParentDataController.fishGameResult.시작시간);
+        Debug.Log("게임 시작 시간 : "+time);
+        hour = time.Hour;
+        minute = time.Minute;
+        isAM = (time.ToString("tt") == "AM");
+        percent = ParentDataController.fishGameResult.완성률;
+
         GameObject bar=Instantiate(barPrefab, content.transform);
         
         GameObject ratio=bar.transform.Find("달성률").gameObject;        
@@ -56,6 +64,7 @@ public class BreatheRecordController : MonoBehaviour
         void makeGraph()
         {
             breathePannel.SetActive(true);
+            breathePannel.GetComponent<GraphGenerator>().drawGraph(data1, data2);
             GameObject.Find("홈화면패널").SetActive(false);
             return;
         }
@@ -64,7 +73,7 @@ public class BreatheRecordController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        ParentDataController.ReceiveBreath(makeBar);
     }
 
     // Update is called once per frame

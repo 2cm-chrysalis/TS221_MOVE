@@ -73,7 +73,7 @@ public class GameStart : MonoBehaviour
             Invoke("disableText", 1.0f);
             isStarted = true;
             Pause.isPaused = false;
-            ChildDataController.fishGameResult.시작시간 =  DateTime.Now.ToString("yyyy-MM-dd-HH:mm:ss.ff");
+            ChildDataController.fishGameResult.시작시간 =  DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.ff");
             ChildDataController.fishGameResult.시작날짜 = DateTime.Now.ToString("d");
         }
 
