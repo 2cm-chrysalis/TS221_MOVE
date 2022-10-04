@@ -422,7 +422,7 @@ MonoBehaviour:
   m_text: "\uADDC\uCE59 \uBAA9\uB85D"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 571c21584fa09b440b0f11a792ff7886, type: 2}
-  m_sharedMaterial: {fileID: -8577799107355028835, guid: 571c21584fa09b440b0f11a792ff7886, type: 2}
+  m_sharedMaterial: {fileID: 1599704419615822856, guid: 571c21584fa09b440b0f11a792ff7886, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2048,7 +2048,7 @@ MonoBehaviour:
   m_text: "<B><color=orange>\uCE6D\uCC2C\uCE74\uB4DC</color> </B>\uADDC\uCE59"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 571c21584fa09b440b0f11a792ff7886, type: 2}
-  m_sharedMaterial: {fileID: -8577799107355028835, guid: 571c21584fa09b440b0f11a792ff7886, type: 2}
+  m_sharedMaterial: {fileID: 1599704419615822856, guid: 571c21584fa09b440b0f11a792ff7886, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3003,7 +3003,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2044780999}
   m_Direction: 2
   m_Value: 1.0000002
-  m_Size: 0.634374
+  m_Size: 0.63437414
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3056,6 +3056,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1469482784}
   - component: {fileID: 1469482783}
+  - component: {fileID: 1469482785}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3090,6 +3091,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1469482785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469482782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bcda56b270b2044b9a5d905370a5d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleInput: {fileID: 583536801}
+  contentInput: {fileID: 2098128143}
+  pointInput: {fileID: 1095219763}
 --- !u!1 &1595054896
 GameObject:
   m_ObjectHideFlags: 0
@@ -4455,6 +4471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 562c0ca069eb6d341bb152a0e6f88a9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireStroeRewardList: {fileID: 1469482785}
   rewardPrefab: {fileID: 710888154180394578, guid: 14ab55f5b0060d6499729a91ffc276d2, type: 3}
   content: {fileID: 1067791102}
   titleInput: {fileID: 583536801}

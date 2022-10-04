@@ -25,6 +25,7 @@ public class FireStoreRewardList : MonoBehaviour
             { "포인트", System.Int32.Parse(pointInput.text) },
             { "완성여부", false }, //AddRewardController에 완성여부관련 변수 추가해야 할 듯.
             { "레벨", level },
+            { "type", "list" }
         };
         docRef.SetAsync(RewardList).ContinueWithOnMainThread(task => {
             Debug.Log("Added data to the RewardList document in the Point collection.");

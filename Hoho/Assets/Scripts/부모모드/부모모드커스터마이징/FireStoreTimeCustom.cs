@@ -19,13 +19,13 @@ public class FireStoreTimeCustom : MonoBehaviour
         FirebaseFirestore db = FirebaseFirestore.DefaultInstance;
         DocumentReference docRef = db.Collection("ParentUsers").Document("001").Collection("TimeCustom").Document("TimeCustom");
         Dictionary<string, object> TimeCustom = new Dictionary<string, object>
-{
-        { "TotalTime", System.Int32.Parse(totalTimesText.text) },//일단 str이긴 한데 필요시 int로 변환할 것.
-        { "Inhale", System.Int32.Parse(inhaleText.text) },
-        { "InhaleStop", System.Int32.Parse(inhaleStopText.text) },
-        { "Exhale", System.Int32.Parse(exhaleText.text) } ,
-        { "ExhaleStop", System.Int32.Parse(exhaleStopText.text) }
-};
+        {
+            { "TotalTime", System.Int32.Parse(totalTimesText.text) },//일단 str이긴 한데 필요시 int로 변환할 것.
+            { "Inhale", System.Int32.Parse(inhaleText.text) },
+            { "InhaleStop", System.Int32.Parse(inhaleStopText.text) },
+            { "Exhale", System.Int32.Parse(exhaleText.text) } ,
+            { "ExhaleStop", System.Int32.Parse(exhaleStopText.text) }
+        };
         docRef.SetAsync(TimeCustom).ContinueWithOnMainThread(task => {
             Debug.Log("Added data to the TimeCustom document in the TimeCustom collection.");
         });
@@ -33,7 +33,7 @@ public class FireStoreTimeCustom : MonoBehaviour
 
     private void Start()
     {
-        inhaleText=GameObject.Find("들숨시간").GetComponent<TMP_InputField>();
+        
     }
 
     // Update is called once per frame

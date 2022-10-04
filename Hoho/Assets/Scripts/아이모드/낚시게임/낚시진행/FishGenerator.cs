@@ -30,10 +30,15 @@ public class FishGenerator : MonoBehaviour
     public float screenMax = 2.0f;
 
     [Header("È£Èí ±×·¡ÇÁ")]
-    public float upTime=4.0f;
-    public float upWaitTime=1.0f;
-    public float downTime=8.0f;
-    public float downWaitTime=0.0f;
+    public static float upTime;
+    public static float upWaitTime;
+    public static float downTime;
+    public static float downWaitTime;
+
+
+
+
+
 
     public float hookPos = 0.0f;
 

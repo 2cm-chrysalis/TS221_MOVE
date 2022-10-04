@@ -43,8 +43,12 @@ public class ChildDataController : MonoBehaviour
         [FirestoreProperty]
         public Dictionary<string, float> 예상호흡기록 { get; set; } = ChildDataController.ExpectedBreatheResult;
     };
-            
 
+
+    public delegate void updateRewardDelegate();
+
+    static public Dictionary<string, int> RLresult = new Dictionary<string, int>();
+    static public Dictionary<string, int> CPresult = new Dictionary<string, int>();
 
     static FirebaseFirestore db;
 
@@ -81,6 +85,11 @@ public class ChildDataController : MonoBehaviour
     static string childID = "001";
 
     /// <summary>
+    /// 부모 ID.
+    /// </summary>
+    static string parentID = "001";
+
+    /// <summary>
     ///        시작날짜 = "", 시작시간 = "", 레벨 = 0, 별개수 = starNum, 플레이시간 = 0, 호흡기록, 예상호흡기록
     /// </summary>
     public static GameResult fishGameResult = new GameResult();
@@ -110,7 +119,8 @@ public class ChildDataController : MonoBehaviour
         A.Add("goalPoint", goalPoint);
         A.Add("rewardTitle", rewardTitle);        
         A.Add("progressRatio", progressRatio);
-        A.Add("childID", childID);        
+        A.Add("childID", childID);
+        A.Add("parentID", parentID);
 
         return A;
     }
@@ -170,6 +180,11 @@ public class ChildDataController : MonoBehaviour
     public static void setChildID(string id)
     {
         childID = id;
+    }
+
+    public static void setParentID(string id)
+    {
+        parentID = id;
     }
 
 
@@ -244,9 +259,127 @@ public class ChildDataController : MonoBehaviour
 
     static public void receiveTimeCustom()
     {
-        DocumentReference docRef = db.Collection("ParentUsers").Document("001");
-        return;
+        var result = new Dictionary<string, float>();
+
+        /*
+        int Exhale = new Dictionary<string, int>();
+        var ExhaleStop = new Dictionary<string, int>();
+        var Inhale = new Dictionary<string, int>();
+        var InhalStop = new Dictionary<string, int>();
+        var TotalTime = new Dictionary<string, int>(); 
+        */
+            
+        Query TSQuery = db.Collection("ParentUsers").Document(parentID).Collection("TimeCustom");
+        TSQuery.GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            QuerySnapshot TSQuerySnapshot = task.Result;
+            foreach(DocumentSnapshot doc in TSQuerySnapshot.Documents)
+            {
+                var docDictionary = doc.ToDictionary();
+
+                string log = "read TimeCustom data : ";
+
+                foreach (KeyValuePair<string, object> pair in docDictionary) 
+                {
+                    result.Add(pair.Key, float.Parse(pair.Value.ToString()));
+                    log += pair.Key + " : " + pair.Value + "\n";
+                }
+                Debug.Log(log);
+            }
+            FishGenerator.upTime = result["Inhale"];
+            FishGenerator.upWaitTime = result["InhaleStop"];
+            FishGenerator.downTime = result["Exhale"];
+            FishGenerator.downWaitTime = result["ExhaleStop"];
+        });          
     }
+
+    static public void receiveRewardList(updateRewardDelegate updateReward)
+    {
+        if (db == null)
+        {
+            db = FirebaseFirestore.DefaultInstance;
+        }
+        Query RLquery = db.Collection("ParentUsers").Document(parentID).Collection("Point").WhereEqualTo("type", "list");
+        RLquery.GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            QuerySnapshot RLQuerySnapshot = task.Result;
+            Debug.Log(" : "+RLQuerySnapshot.Count);
+            foreach (DocumentSnapshot doc in RLQuerySnapshot.Documents)
+            {
+                Debug.Log("123");
+                Dictionary<string, object> RewardLists = doc.ToDictionary();
+                Debug.Log("123");
+
+
+                foreach (KeyValuePair<string, object> pair in RewardLists)
+                {
+                    Debug.Log(String.Format("{0}: {1}", pair.Key, pair.Value));
+                    Debug.Log(pair.Key == "레벨");
+                    Debug.Log("디버깅 : "+RewardLists[pair.Key]);                 
+                }
+
+                Debug.Log("레벨 : "+RewardLists["레벨"].ToString());
+
+                int level = System.Int32.Parse(RewardLists["레벨"].ToString());
+
+                Debug.Log("level is " + level);
+                //Debug.Log(level);
+                //int point = (int)RewardLists["포인트"];
+                //Debug.Log("123");
+                //Debug.Log("level : "+level + ", point : " + point);
+
+                ChildDataController.RLresult.Add("포인트_"+ level.ToString(), point);
+
+            }
+            updateReward();
+        });
+
+
+    }
+
+    static public void receiveCompPoint(updateRewardDelegate updateReward)
+    {
+        if (db == null)
+        {
+            db = FirebaseFirestore.DefaultInstance;
+        }
+        Query CPquery = db.Collection("ParentUsers").Document(parentID).Collection("Point").WhereEqualTo("type", "card");
+        CPquery.GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            QuerySnapshot CPQuerySnapshot = task.Result;
+            Debug.Log(" : " + CPQuerySnapshot.Count);
+            foreach (DocumentSnapshot doc in CPQuerySnapshot.Documents)
+            {
+                Dictionary<string, object> CompPoint = doc.ToDictionary();
+
+
+                foreach (KeyValuePair<string, object> pair in CompPoint)
+                {
+                    Debug.Log(String.Format("{0}: {1}", pair.Key, pair.Value));
+                    Debug.Log(pair.Key == "레벨");
+                    Debug.Log("디버깅 : " + CompPoint[pair.Key]);
+                }
+
+                Debug.Log("레벨 : " + CompPoint["레벨"].ToString());
+
+                int level = System.Int32.Parse(CompPoint["레벨"].ToString());
+
+                Debug.Log("level is " + level);
+                //Debug.Log(level);
+                //int point = (int)RewardLists["포인트"];
+                //Debug.Log("123");
+                //Debug.Log("level : "+level + ", point : " + point);
+
+                ChildDataController.CPresult.Add("포인트_" + level.ToString(), point);
+
+            }
+            updateReward();
+        });
+
+
+    }
+
+
 
     public void UpdateData()
     {
