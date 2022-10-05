@@ -12,6 +12,7 @@ public class CardController : MonoBehaviour
     public TextMeshProUGUI content;
     public TextMeshProUGUI point;
     public Button receive;
+    public Button cpmsg;
 
     public ProgressController progressController;
     public PointListController pointListController;
@@ -29,6 +30,10 @@ public class CardController : MonoBehaviour
         int CPPoint = System.Int32.Parse(pointListController.CPpointStack.Pop());
         setCardInfo("제목", "칭찬포인트", CPPoint);
         Debug.Log("getPoint : " + CPPoint);
+        if (pointListController.CPpointStack.Count == 0)
+        {
+            cpmsg.GetComponent<Button>().interactable = false;
+        }
     }
 
     // Start is called before the first frame update

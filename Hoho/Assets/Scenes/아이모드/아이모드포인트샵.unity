@@ -10927,6 +10927,7 @@ MonoBehaviour:
   content: {fileID: 343437775}
   point: {fileID: 354322698}
   receive: {fileID: 29796173}
+  cpmsg: {fileID: 1795572456}
   progressController: {fileID: 1076636634}
   pointListController: {fileID: 291155833}
 --- !u!1 &1713208983
