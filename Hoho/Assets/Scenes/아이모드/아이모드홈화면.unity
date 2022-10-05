@@ -847,7 +847,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   updateTimeLimit: 0.5
   scanTimeLimit: 5
-  targetDevice: 
+  targetDevice: 8D:CC:8C:70:EB:30
   connectedDevice: 
 --- !u!114 &457317464
 MonoBehaviour:

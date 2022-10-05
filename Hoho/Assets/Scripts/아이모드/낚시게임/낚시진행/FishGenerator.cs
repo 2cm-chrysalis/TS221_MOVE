@@ -135,7 +135,7 @@ public class FishGenerator : MonoBehaviour
         {
             //900->0, 100 ->1
 
-            hookPos = 1f - (Characteristic.value - 100) / 800.0f;
+            hookPos = (Characteristic.value - 100) / 800.0f;
         }
         GameObject.Find("³¬½Ë¹Ù´Ã").GetComponent<HookController>().setPosition(hookPos);
 

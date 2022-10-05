@@ -26,7 +26,7 @@ public class AndroidBLEPluginStart : MonoBehaviour
     [Tooltip("스캔 지속 시간. 스캔은 배터리 소모를 많이 함.")]
     public float scanTimeLimit = 5.0f;
     [Tooltip("연결할 대상의 주소")]
-    public string targetDevice="8d:cc:8c:70:eb:30";
+    public string targetDevice="8D:CC:8C:70:EB:30";
     [Tooltip("연결된 장치의 주소")]
     public string connectedDevice;
 
@@ -108,7 +108,7 @@ public class AndroidBLEPluginStart : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        targetDevice="8D:CC:8C:70:EB:30";
         bleInit();
 
         isScanning = false;
@@ -159,6 +159,7 @@ public class AndroidBLEPluginStart : MonoBehaviour
                     bool targetExists = false;
                     foreach(BleScannedDevice device in scannedDevices)
                     {
+                        //Debug.LogError(device.address);
                         if (device.address == targetDevice)
                         {
                             Debug.LogError("device name : " + device.name);
@@ -169,7 +170,7 @@ public class AndroidBLEPluginStart : MonoBehaviour
                             targetExists = true;
                         }
                     }
-
+                    /*
                     if (!targetExists)
                     {
                     //스캔은 됐으나 연결이 안 된 경우 자동으로 연결 시도. 5초 후에 다시 시도.
@@ -179,6 +180,7 @@ public class AndroidBLEPluginStart : MonoBehaviour
                     isConnecting = true;
                     Invoke("checkConnecting", 15f);
                     }
+                    */
                 }
             }
         }
