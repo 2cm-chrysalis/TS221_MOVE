@@ -49,6 +49,18 @@ public class ProgressController : MonoBehaviour
         }
     }
 
+    public static List<string> rewardTitleList
+    {
+        get
+        {
+            return (List<string>) ChildDataController.getValues()["rewardTitleList"];
+        }
+        set
+        {
+            ChildDataController.setRewardTitleList(value);
+        }
+    }
+
     /// <summary>
     /// 원 안에 있는 포인트 string. 가령 "<U>1</U> <U>2</U>"  
     /// </summary>
@@ -143,6 +155,17 @@ public class ProgressController : MonoBehaviour
             Debug.Log("레벨 상한 도달");
         }
 
+
+        //보상 목록 업데이트.
+
+        List<string> rewardList = new List<string>();
+        for (int i=0; i<rows.Length; i++)
+        {
+            rewardList.Add(getContentfromRow(rows[i]));
+        }
+        ChildDataController.setRewardTitleList(rewardList);
+        
+
         currentLevel.GetComponent<TextMeshProUGUI>().text = level.ToString();
 
         ProgressController.pointString = pointText.text = pointToString(parsePoint(currentPoint));
@@ -152,7 +175,7 @@ public class ProgressController : MonoBehaviour
 
         Debug.Log(goalPoint.text);
 
-        updateProgress();        
+        updateProgress();
     }
 
 

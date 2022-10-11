@@ -74,6 +74,11 @@ public class ChildDataController : MonoBehaviour
     static string rewardTitle="놀이공원";
 
     /// <summary>
+    /// 레벨에 따른 보상 내용들.
+    /// </summary>
+    public static List<string> rewardTitleList = new List<string>();
+
+    /// <summary>
     /// 현재 점수/목표 점수
     /// </summary>
     static float progressRatio=point/(float) goalPoint;
@@ -142,6 +147,20 @@ public class ChildDataController : MonoBehaviour
         point = pt;
     }
 
+    /// <summary>
+    /// 아이 모드의 point를 더함. 레벨업, 보상 내용까지 알아서 수정해줌. 보상 내용은 포인트샵을 가야 초기화됨. 
+    /// </summary>
+    /// <param name="pt"></param>
+    public static void addPoint(int pt)
+    {
+        point = point+pt;
+        if (point > goalPoint && level-1<rewardTitleList.Count)
+        {
+            level = level + 1;
+            rewardTitle = rewardTitleList[level - 1];
+        }
+    }
+
 
     /// <summary>
     /// 현재 보상을 얻기 위한 목표 점수.
@@ -163,6 +182,15 @@ public class ChildDataController : MonoBehaviour
     public static void setRewardTitle(string title)
     {
         rewardTitle = title;
+    }
+
+    public static void setRewardTitleList(List<string> titleList)
+    {
+        rewardTitleList.Clear();
+        foreach(string title in titleList)
+        {
+            rewardTitleList.Add(title);
+        }
     }
 
     /// <summary>

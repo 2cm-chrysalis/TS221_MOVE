@@ -74,12 +74,14 @@ public class TimeController : MonoBehaviour
             PointListController.pointContent cont = new PointListController.pointContent();
             cont.content = "낚시 게임";
             cont.point = FishArrivalTime.getFishNum() * 10;//System.Int32.Parse(point.text)/10;
+            ChildDataController.addPoint(cont.point);   //아이 모드의 포인트 더하기.
             PointListController.pointContentList.Add(cont);
 
             setResult();
             ChildDataController.setCanSend(ChildDataController.BreatheResult.Count >0);
 
             ChildDataController.SendGameResult();
+            ChildDataController.SendPoint();
         }
     }
 
