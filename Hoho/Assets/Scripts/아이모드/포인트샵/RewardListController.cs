@@ -25,9 +25,7 @@ public class RewardListController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ChildDataController.updateRewardDelegate rewardDelegate = setGuideText;
         ChildDataController.receiveRewardList(setGuideText);
-
     }
 
     // Update is called once per frame

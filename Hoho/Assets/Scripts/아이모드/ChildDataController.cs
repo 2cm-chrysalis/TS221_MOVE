@@ -45,13 +45,31 @@ public class ChildDataController : MonoBehaviour
     };
 
 
-    public delegate void updateRewardDelegate();
+    [FirestoreData]
+    public class PointInformation
+    {
+        [FirestoreProperty]
+        public int 현재포인트 { get; set; } = 0;
+
+        [FirestoreProperty]
+        public int 목표점수 { get; set; } = 1000;
+
+        [FirestoreProperty]
+        public int 레벨 { get; set; } = 1;
+
+        [FirestoreProperty]
+        public string 보상제목 { get; set; } = "놀이공원";
+    }
+
+
+    public delegate void updateDelegate();
 
     static public Dictionary<string, int> RLresult = new Dictionary<string, int>();
     static public Dictionary<string, int> CPresult = new Dictionary<string, int>();
 
     static FirebaseFirestore db;
 
+    static bool isReceived = false; 
     static bool canSend = false;
 
     /// <summary>
@@ -118,11 +136,13 @@ public class ChildDataController : MonoBehaviour
     {
 
         Dictionary<string, object> A = new Dictionary<string, object>();
+        A.Add("isReceived", isReceived);
         A.Add("canSend", canSend);
         A.Add("point", point);
         A.Add("level", level);
         A.Add("goalPoint", goalPoint);
-        A.Add("rewardTitle", rewardTitle);        
+        A.Add("rewardTitle", rewardTitle);
+        A.Add("rewardTitleList", rewardTitleList);
         A.Add("progressRatio", progressRatio);
         A.Add("childID", childID);
         A.Add("parentID", parentID);
@@ -285,6 +305,42 @@ public class ChildDataController : MonoBehaviour
         });
     }
 
+    public static void ReceivePoint(updateDelegate updateCircle)
+    {
+        if (db == null)
+        {
+            db = FirebaseFirestore.DefaultInstance;
+        }
+
+        DocumentReference pointDoc = db.Collection("ChildrenUsers").Document(childID).Collection("Point").Document("CurrentPoint");
+
+        pointDoc.GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            DocumentSnapshot snapshot = task.Result;
+            if (snapshot.Exists)
+            { // document가 없으면 false
+              //snapshot.ID
+                Debug.Log("ChildDataController.receivePoint");
+                PointInformation pointInfo = snapshot.ConvertTo<PointInformation>();
+                level = pointInfo.레벨;
+                goalPoint=pointInfo.목표점수;
+                rewardTitle=pointInfo.보상제목;
+                point=pointInfo.현재포인트;
+
+                isReceived = true;
+            }
+            else
+            {
+                Debug.Log(String.Format("Document {0} does not exist!", snapshot.Id));
+            }
+          
+        });
+
+        updateCircle();
+
+    }
+
+
     static public void receiveTimeCustom()
     {
         var result = new Dictionary<string, float>();
@@ -321,7 +377,7 @@ public class ChildDataController : MonoBehaviour
         });          
     }
 
-    static public void receiveRewardList(updateRewardDelegate updateReward)
+    static public void receiveRewardList(updateDelegate updateReward)
     {
         if (db == null)
         {
@@ -365,7 +421,7 @@ public class ChildDataController : MonoBehaviour
 
     }
 
-    static public void receiveCompPoint(updateRewardDelegate updateReward)
+    static public void receiveCompPoint(updateDelegate updateReward)
     {
         if (db == null)
         {
