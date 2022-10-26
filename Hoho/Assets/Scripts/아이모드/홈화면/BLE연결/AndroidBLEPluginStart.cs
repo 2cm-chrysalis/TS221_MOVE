@@ -13,7 +13,7 @@ public class AndroidBLEPluginStart : MonoBehaviour
     /// <summary>
     /// static 변수, 연결됐는지 여부.
     /// </summary>
-    public static bool isConnected=true;
+    public static bool isConnected=false;
 
     public static List<BleScannedDevice> scannedDevices = new List<BleScannedDevice>();
     public static List<BleCharacteristicData> characteristicDatas = new List<BleCharacteristicData>();

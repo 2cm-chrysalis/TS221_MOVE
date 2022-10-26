@@ -8,6 +8,7 @@ public class Pause : MonoBehaviour
 {
     public static bool isPaused=false;
 
+    public GameObject connectionChecker;
     public Button pauseBtn;
 
     public GameObject heart1;
@@ -25,6 +26,13 @@ public class Pause : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (AndroidBLEPluginStart.isConnected == false)
+        {
+            isPaused = true;
+            connectionChecker.SetActive(true);
+        }
+
+
         if (GameStart.isStarted && heart3.activeSelf) // ||(pauseBtn.GetComponentInChildren<TextMeshProUGUI>().text == "Àç°³")
         {
             pauseBtn.enabled = true;
