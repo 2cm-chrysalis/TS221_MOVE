@@ -2050,6 +2050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f96553e57774bb448f21644eae5ff8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  connectionChecker: {fileID: 1396088432}
   pauseBtn: {fileID: 610847626}
   heart1: {fileID: 971598855}
   heart2: {fileID: 2106376473}
