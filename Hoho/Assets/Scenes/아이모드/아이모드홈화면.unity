@@ -786,6 +786,7 @@ GameObject:
   - component: {fileID: 457317461}
   - component: {fileID: 457317463}
   - component: {fileID: 457317464}
+  - component: {fileID: 457317465}
   m_Layer: 0
   m_Name: BeltSensorValueObject
   m_TagString: Untagged
@@ -847,6 +848,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9229bd25164cb664586ab156aee943eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &457317465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457317460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e0b549532a9b534fadedcef27665309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &457760155
